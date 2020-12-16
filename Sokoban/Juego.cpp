@@ -35,8 +35,13 @@ void Juego::CargarJuego() {
             }
 
         }
-      //  Victoria();
-      //  CargaEscenas();
+
+        window.clear();
+
+        //Dibujar
+
+        window.display();
+
     }
 }
 
