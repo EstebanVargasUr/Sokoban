@@ -7,9 +7,9 @@ using namespace std;
 
 int main()
 {
-    //Juego* Ventana;
-  //  Ventana = new Juego();
-   // Ventana->CargarJuego();
+    Juego* Ventana;
+    Ventana = new Juego();
+    Ventana->CargarJuego();
     Lista* lista = new Lista();
     char tabla1 [15][20] = { {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                             {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},

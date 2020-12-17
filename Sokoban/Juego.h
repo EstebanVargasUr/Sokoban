@@ -44,8 +44,8 @@ private:
 	public:
 
 	void CargarJuego();
-	//void Cargartexturas();
-	//void CargaEscenas();
+	void Cargartexturas();
+	void CargaEscenas();
 	
 };
 #endif
