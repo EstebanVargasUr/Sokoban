@@ -92,7 +92,7 @@ int main()
                             {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '} };
     for(int i = 0; i<15;i++)
         for(int j = 0; j<20;j++)
-            lista->insertar(tabla1[i][j],i,j);
+            lista->insertar(tabla4[i][j],i,j);
     
     lista->mostrar();
     system("PAUSE");

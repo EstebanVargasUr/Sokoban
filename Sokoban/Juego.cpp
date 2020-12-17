@@ -86,7 +86,7 @@ void Juego::CargaEscenas() {
     if (Escena == 1) {
         window.clear();
 
-        nivel = new Nivel(1);
+        nivel = new Nivel(4);
 
         for (int i = 0; i < 15; i++)
         {
