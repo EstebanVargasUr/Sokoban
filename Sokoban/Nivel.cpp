@@ -19,7 +19,10 @@ Nivel::Nivel(int nivel) {
 		break;
 
 	case 3:
-		
+		if (!TexturaFondo.loadFromFile("fondo1.jpg") || !TexturaMuro.loadFromFile("Muro3.jpg"))
+		{
+			cout << "No se cargo la imagen correctamente" << endl;
+		}
 		break;
 
 	case 4:
@@ -27,7 +30,7 @@ Nivel::Nivel(int nivel) {
 		break;
 	}
 
-	if(!TexturaCaja.loadFromFile("caja1.png") || !TexturaMeta.loadFromFile("Meta1.png"))
+	if(!TexturaCaja.loadFromFile("caja1.png") || !TexturaCajaMeta.loadFromFile("caja2.png") || !TexturaMeta.loadFromFile("Meta1.png"))
 	{
 		cout << "No se cargo la imagen correctamente" << endl;
 	}
@@ -165,7 +168,69 @@ void Nivel::setNivel2() {
 
 }
 void Nivel::setNivel3() {
+	//MUROS
+	casillas[3][8]->setSprite(TexturaMuro);
+	casillas[3][9]->setSprite(TexturaMuro);
+	casillas[3][10]->setSprite(TexturaMuro);
+	casillas[3][11]->setSprite(TexturaMuro);
+	casillas[3][12]->setSprite(TexturaMuro);
 
+	casillas[4][6]->setSprite(TexturaMuro);
+	casillas[4][7]->setSprite(TexturaMuro);
+	casillas[4][8]->setSprite(TexturaMuro);
+	casillas[4][12]->setSprite(TexturaMuro);
+
+	casillas[5][6]->setSprite(TexturaMuro);
+	casillas[5][12]->setSprite(TexturaMuro);
+
+	casillas[6][6]->setSprite(TexturaMuro);
+	casillas[6][7]->setSprite(TexturaMuro);
+	casillas[6][8]->setSprite(TexturaMuro);
+	casillas[6][12]->setSprite(TexturaMuro);
+
+	casillas[7][6]->setSprite(TexturaMuro);
+	casillas[7][8]->setSprite(TexturaMuro);
+	casillas[7][9]->setSprite(TexturaMuro);
+	casillas[7][12]->setSprite(TexturaMuro);
+
+	casillas[8][6]->setSprite(TexturaMuro);
+	casillas[8][8]->setSprite(TexturaMuro);
+	casillas[8][12]->setSprite(TexturaMuro);
+	casillas[8][13]->setSprite(TexturaMuro);
+
+	casillas[9][6]->setSprite(TexturaMuro);
+	casillas[9][13]->setSprite(TexturaMuro);
+
+	casillas[10][6]->setSprite(TexturaMuro);
+	casillas[10][13]->setSprite(TexturaMuro);
+
+	casillas[11][6]->setSprite(TexturaMuro);
+	casillas[11][7]->setSprite(TexturaMuro);
+	casillas[11][8]->setSprite(TexturaMuro);
+	casillas[11][9]->setSprite(TexturaMuro);
+	casillas[11][10]->setSprite(TexturaMuro);
+	casillas[11][11]->setSprite(TexturaMuro);
+	casillas[11][12]->setSprite(TexturaMuro);
+	casillas[11][13]->setSprite(TexturaMuro);
+
+	//PERSONAJE
+	casillas[5][8]->setSprite(TexturaPersonajeAtras);
+	//METAS
+	casillas[5][7]->setSprite(TexturaMeta);
+	casillas[6][11]->setSprite(TexturaMeta);
+	casillas[7][7]->setSprite(TexturaMeta);
+	casillas[8][10]->setSprite(TexturaMeta);
+	casillas[9][12]->setSprite(TexturaMeta);
+	casillas[10][10]->setSprite(TexturaMeta);
+	//CAJAS
+	casillas[5][9]->setSprite(TexturaCaja);
+	casillas[6][10]->setSprite(TexturaCaja);
+	casillas[7][10]->setSprite(TexturaCaja);
+	casillas[9][7]->setSprite(TexturaCaja);
+	casillas[9][10]->setSprite(TexturaCaja);
+	casillas[9][11]->setSprite(TexturaCaja);
+	//CAJA COLOCADA
+	casillas[9][9]->setSprite(TexturaCajaMeta);
 }
 void Nivel::setNivel4() {
 

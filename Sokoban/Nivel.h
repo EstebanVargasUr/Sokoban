@@ -18,6 +18,7 @@ private:
 	Texture TexturaCaja;
 	Texture TexturaMuro;
 	Texture TexturaMeta;
+	Texture TexturaCajaMeta;
 	Texture TexturaPersonajeAtras;
 	Texture TexturaPersonajeDerecha;
 	Texture TexturaPersonajeIzquierda;
