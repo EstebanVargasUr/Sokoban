@@ -45,6 +45,14 @@ void Juego::CargarJuego() {
                         {
                             Escena = 2;
                         }
+                        if (BtnNivel2Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            Escena = 3;
+                        }
+                        if (BtnNivel4Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            Escena = 5;
+                        }
                     }
 
                 }
@@ -123,6 +131,54 @@ void Juego::CargaEscenas() {
         window.draw(Meta2Spt);
         window.draw(Meta3Spt);
 
+        window.display();
+    }
+
+    if (Escena == 3) {
+        if (!Inicio) {
+            window.clear();
+            nivel = new Nivel(2);
+            CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 600, 240, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
+            CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 660, 240, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
+            CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
+            Inicio = true;
+        }
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 20; j++)
+            {
+                window.draw(nivel->casillas[i][j]->sprite);
+            }
+        }
+
+        window.draw(Meta1Spt);
+        window.draw(Meta2Spt);
+        window.draw(Meta3Spt);
+        window.display();
+    }
+    if (Escena == 5) {
+        if (!Inicio) {
+            window.clear();
+            nivel = new Nivel(4);
+
+            CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 540, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
+            CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 540, 360, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
+            CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 540, 420, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
+            CargaGrafica CargaMeta4 = CargaGrafica("Meta1.png", 540, 480, 0.15, 0.15, Meta4Tx, Meta4Spt, 1);
+            Inicio = true;
+        }
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 20; j++)
+            {
+                window.draw(nivel->casillas[i][j]->sprite);
+            }
+        }
+
+        window.draw(Meta1Spt);
+        window.draw(Meta2Spt);
+        window.draw(Meta3Spt);
+        window.draw(Meta4Spt);
         window.display();
     }
 }

@@ -211,9 +211,9 @@ void Nivel::setNivel2() {
 	//PERSONAJE
 	casillas[4][9]->setSprite(TexturaPersonajeAtras);
 	//METAS
-	casillas[4][12]->setSprite(TexturaMeta);
+	/*casillas[4][12]->setSprite(TexturaMeta);
 	casillas[4][11]->setSprite(TexturaMeta);
-	casillas[4][10]->setSprite(TexturaMeta);
+	casillas[4][10]->setSprite(TexturaMeta);*/
 	//CAJAS
 	casillas[6][9]->setSprite(TexturaCaja);
 	casillas[7][11]->setSprite(TexturaCaja);
@@ -350,10 +350,10 @@ void Nivel::setNivel4() {
 	//PERSONAJE
 	casillas[9][7]->setSprite(TexturaPersonajeAtras);
 	//METAS
-	casillas[5][9]->setSprite(TexturaMeta);
+	/*casillas[5][9]->setSprite(TexturaMeta);
 	casillas[6][9]->setSprite(TexturaMeta);
 	casillas[7][9]->setSprite(TexturaMeta);
-	casillas[8][9]->setSprite(TexturaMeta);
+	casillas[8][9]->setSprite(TexturaMeta);*/
 	//CAJAS
 	casillas[3][9]->setSprite(TexturaCaja);
 	casillas[4][7]->setSprite(TexturaCaja);
