@@ -158,9 +158,10 @@ void Nivel::setNivel1() {
 	//PERSONAJE
 	casillas[10][10]->setSprite(TexturaPersonajeAtras);
 	//METAS
-	casillas[4][12]->setSprite(TexturaMeta);
+	/*casillas[4][12]->setSprite(TexturaMeta);
 	casillas[7][5]->setSprite(TexturaMeta);
-	casillas[9][14]->setSprite(TexturaMeta);
+	casillas[9][14]->setSprite(TexturaMeta);*/
+
 	//CAJAS
 	casillas[6][7]->setSprite(TexturaCaja);
 	casillas[7][11]->setSprite(TexturaCaja);

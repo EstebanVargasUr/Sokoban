@@ -30,6 +30,10 @@ private:
 	Texture BtnNivel4Tx;
 	Texture BtnNivel5Tx;
 	Texture BtnDevolverSTx;
+	Texture Meta1Tx;
+	Texture Meta2Tx;
+	Texture Meta3Tx;
+
 	//Sprites
 	Sprite FondoMenuSpt;
 	Sprite LogoSpt;
@@ -42,6 +46,9 @@ private:
 	Sprite BtnNivel4Spt;
 	Sprite BtnNivel5Spt;
 	Sprite BtnDevolverSSpt;
+	Sprite Meta1Spt;
+	Sprite Meta2Spt;
+	Sprite Meta3Spt;
 
 	Nivel *nivel;
 

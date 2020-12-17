@@ -41,6 +41,10 @@ void Juego::CargarJuego() {
                         {
                             Escena = 0;
                         }
+                        if (BtnNivel1Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            Escena = 2;
+                        }
                     }
 
                 }
@@ -60,7 +64,7 @@ void Juego::CargarJuego() {
     }
 }
 void Juego::Cargartexturas() {
-    CargaGrafica CargaFondoMenu = CargaGrafica("MenuFondo.jpg", 0, 0, 1, 1, FondoMenuTx, FondoMenuSpt,0);;
+    CargaGrafica CargaFondoMenu = CargaGrafica("MenuFondo.jpg", 0, 0, 1, 1, FondoMenuTx, FondoMenuSpt,0);
     CargaGrafica CargaLogo = CargaGrafica("logoSokoban.png",405,100,0.65,0.65, LogoTx, LogoSpt,1);
     CargaGrafica CargaBtnJugar = CargaGrafica("btnJugar.png", 400, 390, 0.9, 0.9, BtnJugarTx, BtnJugarSpt,1);
     CargaGrafica CargaBtnCargar = CargaGrafica("btnCargarPartida.png", 400, 510, 0.9, 0.9, BtnCargarPartidaTx, BtnCargarPartidaSpt, 1);
@@ -71,6 +75,7 @@ void Juego::Cargartexturas() {
     CargaGrafica CargaBtnNivel4 = CargaGrafica("btnNivel4.png", 760, 500, 0.75, 0.75, BtnNivel4Tx, BtnNivel4Spt, 1);
     CargaGrafica CargaBtnNivel5 = CargaGrafica("btnNivel5.png", 960, 300, 0.75, 0.75, BtnNivel5Tx, BtnNivel5Spt, 1);
     CargaGrafica CargaBtnDelvolverS = CargaGrafica("btnDevolverS.png", 80, 800, 0.50, 0.65, BtnDevolverSTx, BtnDevolverSSpt, 1);
+    
 }
 void Juego::CargaEscenas() {
 
@@ -84,25 +89,40 @@ void Juego::CargaEscenas() {
         window.display();
     }
     if (Escena == 1) {
+       
+        
         window.clear();
 
-        nivel = new Nivel(4);
-
-        for (int i = 0; i < 15; i++)
-        {
-            for (int j = 0; j < 20; j++)
-            {
-                window.draw(nivel->casillas[i][j]->sprite);
-            }
-        }
-
-        /*window.draw(FondoMenuSpt);
+        window.draw(FondoMenuSpt);
         window.draw(BtnNivel1Spt);
         window.draw(BtnNivel2Spt);
         window.draw(BtnNivel3Spt);
         window.draw(BtnNivel4Spt);
         window.draw(BtnNivel5Spt);
-        window.draw(BtnDevolverSSpt);*/
+        window.draw(BtnDevolverSSpt);
+        window.display();
+    }
+    if (Escena == 2) {
+        if (!Inicio) {
+            window.clear();
+            nivel = new Nivel(1);
+            CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 300, 420, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
+            CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 840, 540, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
+            CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
+            Inicio = true;
+        }
+            for (int i = 0; i < 15; i++)
+            {
+                for (int j = 0; j < 20; j++)
+                {
+                    window.draw(nivel->casillas[i][j]->sprite);
+                }
+            }
+            
+        window.draw(Meta1Spt);
+        window.draw(Meta2Spt);
+        window.draw(Meta3Spt);
+
         window.display();
     }
 }

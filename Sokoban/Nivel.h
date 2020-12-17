@@ -2,6 +2,7 @@
 #include "pch.h"
 #include <SFML/Graphics.hpp>
 #include "Tablero.h"
+#include "CargaGrafica.h"
 #include <vector>
 
 using namespace std;
