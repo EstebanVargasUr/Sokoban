@@ -49,6 +49,10 @@ void Juego::CargarJuego() {
                         {
                             Escena = 3;
                         }
+                        if (BtnNivel3Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            Escena = 4;
+                        }
                         if (BtnNivel4Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 5;
@@ -133,7 +137,6 @@ void Juego::CargaEscenas() {
 
         window.display();
     }
-
     if (Escena == 3) {
         if (!Inicio) {
             window.clear();
@@ -154,6 +157,38 @@ void Juego::CargaEscenas() {
         window.draw(Meta1Spt);
         window.draw(Meta2Spt);
         window.draw(Meta3Spt);
+        window.display();
+    }
+    if (Escena == 4) {
+        if (!Inicio) {
+            window.clear();
+            nivel = new Nivel(3);
+            CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 420, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
+            CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 420, 420, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
+            CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 660, 360, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
+            CargaGrafica CargaMeta4 = CargaGrafica("Meta1.png", 600, 480, 0.15, 0.15, Meta4Tx, Meta4Spt, 1);
+            CargaGrafica CargaMeta5 = CargaGrafica("Meta1.png", 540, 540, 0.15, 0.15, Meta5Tx, Meta5Spt, 1);
+            CargaGrafica CargaMeta6 = CargaGrafica("Meta1.png", 600, 600, 0.15, 0.15, Meta6Tx, Meta6Spt, 1);
+
+            CargaGrafica CargaMeta7 = CargaGrafica("Meta1.png", 720, 540, 0.15, 0.15, Meta7Tx, Meta7Spt, 1);
+            Inicio = true;
+        }
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 20; j++)
+            {
+                window.draw(nivel->casillas[i][j]->sprite);
+            }
+        }
+
+        window.draw(Meta1Spt);
+        window.draw(Meta2Spt);
+        window.draw(Meta3Spt);
+        window.draw(Meta4Spt);
+        window.draw(Meta5Spt);
+        window.draw(Meta6Spt);
+        window.draw(Meta7Spt);
+
         window.display();
     }
     if (Escena == 5) {

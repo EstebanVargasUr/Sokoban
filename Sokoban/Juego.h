@@ -34,6 +34,9 @@ private:
 	Texture Meta2Tx;
 	Texture Meta3Tx;
 	Texture Meta4Tx;
+	Texture Meta5Tx;
+	Texture Meta6Tx;
+	Texture Meta7Tx;
 
 	//Sprites
 	Sprite FondoMenuSpt;
@@ -51,6 +54,9 @@ private:
 	Sprite Meta2Spt;
 	Sprite Meta3Spt;
 	Sprite Meta4Spt;
+	Sprite Meta5Spt;
+	Sprite Meta6Spt;
+	Sprite Meta7Spt;
 
 	Nivel *nivel;
 
