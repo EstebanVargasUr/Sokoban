@@ -44,15 +44,8 @@ private:
 	public:
 
 	void CargarJuego();
-	void Cargartexturas();
-	void CargaEscenas();
-	void ManejoBolasLvl1();
-	void ManejoBolasLvl2();
-	void ManejoBolasLvl3();
-	void ManejoBolasLvl4();
-	void ManejoBolasLvl5();
-	int saberXY(int,int);
-	void Victoria();
-	void Movimientos();
+	//void Cargartexturas();
+	//void CargaEscenas();
+	
 };
 #endif

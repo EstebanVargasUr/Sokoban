@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CargaGrafica.cpp" />
+    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Sokoban.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="pch.cpp">
@@ -165,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CargaGrafica.h" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
