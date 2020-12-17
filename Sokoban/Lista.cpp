@@ -61,14 +61,351 @@ void Lista::insertar(char dato, int fila, int columna)
 			}
 		}
 	}
-	if (dato == '@')
+	if (dato == '@' || dato == '*')
 		jugador = nuevoNodo;
 }
 
 bool Lista::mover(string pos)
 {
-	//if(jugador->arriba->data == ' ')
-	return false;
+	if (pos == "arriba") {
+		return arriba();
+	}
+	else if (pos == "abajo") {
+		return abajo();
+	}
+	else if (pos == "izquierda") {
+		return izquierda();
+	}
+	else if (pos == "derecha") {
+		return derecha();
+	}
+	else {
+		return false;
+	}
+}
+
+bool Lista::arriba()
+{
+	if (jugador->arriba->data == ' ') {
+		if (jugador->data == '@')
+			jugador->data = ' ';
+		else
+			jugador->data = '.';
+
+		jugador->arriba->data = '@';
+		jugador = jugador->arriba;
+		return true;
+	}
+	else if (jugador->arriba->data == '.') {
+		if (jugador->data == '@')
+			jugador->data = ' ';
+		else
+			jugador->data = '.';
+
+		jugador->arriba->data = '*';
+		jugador = jugador->arriba;
+		return true;
+	}
+	else if (jugador->arriba->data == '$') {
+		if (jugador->arriba->arriba->data == ' ') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->arriba->data = '@';
+			jugador->arriba->arriba->data = '$';
+			jugador = jugador->arriba;
+			return true;
+		}
+		else if (jugador->arriba->arriba->data == '.') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->arriba->data = '@';
+			jugador->arriba->arriba->data = '!';
+			jugador = jugador->arriba;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else if (jugador->arriba->data == '!') {
+		if (jugador->arriba->arriba->data == ' ') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->arriba->data = '*';
+			jugador->arriba->arriba->data = '$';
+			jugador = jugador->arriba;
+			return true;
+		}
+		else if (jugador->arriba->arriba->data == '.') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->arriba->data = '*';
+			jugador->arriba->arriba->data = '!';
+			jugador = jugador->arriba;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
+}
+
+bool Lista::abajo()
+{
+	if (jugador->abajo->data == ' ') {
+		if (jugador->data == '@')
+			jugador->data = ' ';
+		else
+			jugador->data = '.';
+
+		jugador->abajo->data = '@';
+		jugador = jugador->abajo;
+		return true;
+	}
+	else if (jugador->abajo->data == '.') {
+		if (jugador->data == '@')
+			jugador->data = ' ';
+		else
+			jugador->data = '.';
+
+		jugador->abajo->data = '*';
+		jugador = jugador->abajo;
+		return true;
+	}
+	else if (jugador->abajo->data == '$') {
+		if (jugador->abajo->abajo->data == ' ') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->abajo->data = '@';
+			jugador->abajo->abajo->data = '$';
+			jugador = jugador->abajo;
+			return true;
+		}
+		else if (jugador->abajo->abajo->data == '.') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->abajo->data = '@';
+			jugador->abajo->abajo->data = '!';
+			jugador = jugador->abajo;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else if (jugador->abajo->data == '!') {
+		if (jugador->abajo->abajo->data == ' ') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->abajo->data = '*';
+			jugador->abajo->abajo->data = '$';
+			jugador = jugador->abajo;
+			return true;
+		}
+		else if (jugador->abajo->abajo->data == '.') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->abajo->data = '*';
+			jugador->abajo->abajo->data = '!';
+			jugador = jugador->abajo;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
+}
+
+bool Lista::izquierda()
+{
+	if (jugador->izquierda->data == ' ') {
+		if (jugador->data == '@')
+			jugador->data = ' ';
+		else
+			jugador->data = '.';
+
+		jugador->izquierda->data = '@';
+		jugador = jugador->izquierda;
+		return true;
+	}
+	else if (jugador->izquierda->data == '.') {
+		if (jugador->data == '@')
+			jugador->data = ' ';
+		else
+			jugador->data = '.';
+
+		jugador->izquierda->data = '*';
+		jugador = jugador->izquierda;
+		return true;
+	}
+	else if (jugador->izquierda->data == '$') {
+		if (jugador->izquierda->izquierda->data == ' ') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->izquierda->data = '@';
+			jugador->izquierda->izquierda->data = '$';
+			jugador = jugador->izquierda;
+			return true;
+		}
+		else if (jugador->izquierda->izquierda->data == '.') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->izquierda->data = '@';
+			jugador->izquierda->izquierda->data = '!';
+			jugador = jugador->izquierda;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else if (jugador->izquierda->data == '!') {
+		if (jugador->izquierda->izquierda->data == ' ') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->izquierda->data = '*';
+			jugador->izquierda->izquierda->data = '$';
+			jugador = jugador->izquierda;
+			return true;
+		}
+		else if (jugador->izquierda->izquierda->data == '.') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->izquierda->data = '*';
+			jugador->izquierda->izquierda->data = '!';
+			jugador = jugador->izquierda;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
+}
+
+bool Lista::derecha()
+{
+	if (jugador->derecha->data == ' ') {
+		if (jugador->data == '@')
+			jugador->data = ' ';
+		else
+			jugador->data = '.';
+
+		jugador->derecha->data = '@';
+		jugador = jugador->derecha;
+		return true;
+	}
+	else if (jugador->derecha->data == '.') {
+		if (jugador->data == '@')
+			jugador->data = ' ';
+		else
+			jugador->data = '.';
+
+		jugador->derecha->data = '*';
+		jugador = jugador->derecha;
+		return true;
+	}
+	else if (jugador->derecha->data == '$') {
+		if (jugador->derecha->derecha->data == ' ') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->derecha->data = '@';
+			jugador->derecha->derecha->data = '$';
+			jugador = jugador->derecha;
+			return true;
+		}
+		else if (jugador->derecha->derecha->data == '.') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->derecha->data = '@';
+			jugador->derecha->derecha->data = '!';
+			jugador = jugador->derecha;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else if (jugador->derecha->data == '!') {
+		if (jugador->derecha->derecha->data == ' ') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->derecha->data = '*';
+			jugador->derecha->derecha->data = '$';
+			jugador = jugador->derecha;
+			return true;
+		}
+		else if (jugador->derecha->derecha->data == '.') {
+			if (jugador->data == '@')
+				jugador->data = ' ';
+			else
+				jugador->data = '.';
+
+			jugador->derecha->data = '*';
+			jugador->derecha->derecha->data = '!';
+			jugador = jugador->derecha;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
+	}
 }
 
 void Lista::mostrar()

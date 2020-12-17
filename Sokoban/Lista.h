@@ -21,6 +21,10 @@ public:
     Lista();
     void insertar(char,int,int);
     bool mover(string);
+    bool arriba();
+    bool abajo();
+    bool izquierda();
+    bool derecha();
     void mostrar();
 };
 
