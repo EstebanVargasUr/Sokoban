@@ -410,7 +410,30 @@ bool Lista::derecha()
 
 void Lista::mostrar()
 {
-	Nodo* ini = inicial;
+
+	cout << "\n\n\n	PRUEBAS\n" << endl;
+	Nodo* aux = new Nodo();
+	Nodo* aux2 = new Nodo();
+	aux = inicial;
+	aux2 = inicial;
+	while (aux != NULL)
+	{
+		aux2 = aux;
+		while (aux2 != NULL)
+		{
+			cout << "----> Dato: " << aux2->data << " | Fila: " << aux2->fila << " Columna: " << aux2->columna << " | " << endl;
+			
+			cout << endl;
+
+			aux2 = aux2->derecha;
+		}
+		aux = aux->abajo;
+	}
+
+	cout << endl;
+}
+
+	/*Nodo* ini = inicial;
 	//fila 0
 	while (ini != NULL)
 	{
@@ -531,4 +554,4 @@ void Lista::mostrar()
 	}
 	cout << endl;
 }
-
+*/

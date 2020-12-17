@@ -2,6 +2,7 @@
 #include "SFML\Graphics.hpp"
 #include "CargaGrafica.h"
 #include <vector>
+#include "Nivel.h"
 using namespace sf;
 using namespace std;
 
@@ -16,6 +17,7 @@ private:
 	Event event;
 	Image icono;
 	int Escena = 0;
+	bool Inicio = false;
 	//Texturas
 	Texture FondoMenuTx;
 	Texture LogoTx;
@@ -41,11 +43,14 @@ private:
 	Sprite BtnNivel5Spt;
 	Sprite BtnDevolverSSpt;
 
+	Nivel *nivel;
+
 	public:
 
 	void CargarJuego();
 	void Cargartexturas();
 	void CargaEscenas();
+	
 	
 };
 #endif
