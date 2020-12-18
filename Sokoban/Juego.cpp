@@ -6,7 +6,7 @@
 void Juego::CargarJuego() {
     window.create(VideoMode(1200, 900), "Sokoban", Style::Close);
     
-    icono.loadFromFile("icono.png");
+    icono.loadFromFile("imagenes/icono.png");
     window.setIcon(icono.getSize().x, icono.getSize().y, icono.getPixelsPtr());
     Cargartexturas();
     
@@ -107,7 +107,7 @@ void Juego::CargarJuego() {
                     if (Escena != 0 && Escena != 1)
                     {
                         if (lista->mover("abajo")) {
-                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeAtras());
+                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeFrente());
                             nivel->casillas[lista->fila() - 1][lista->columna()]->sprite.setTexture(nivel->getTexturaFondo());
 
                             if (lista->getJugador()->abajo->data == '$' || lista->getJugador()->abajo->data == '!')
@@ -123,7 +123,7 @@ void Juego::CargarJuego() {
                     if (Escena != 0 && Escena != 1)
                     {
                         if (lista->mover("izquierda")) {
-                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeAtras());
+                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeIzquierda());
                             nivel->casillas[lista->fila()][lista->columna() + 1]->sprite.setTexture(nivel->getTexturaFondo());
 
                             if (lista->getJugador()->izquierda->data == '$' || lista->getJugador()->izquierda->data == '!')
@@ -140,7 +140,7 @@ void Juego::CargarJuego() {
                     if (Escena != 0 && Escena != 1)
                     {
                         if (lista->mover("derecha")) {
-                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeAtras());
+                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeDerecha());
                             nivel->casillas[lista->fila()][lista->columna() - 1]->sprite.setTexture(nivel->getTexturaFondo());
 
                             if (lista->getJugador()->derecha->data == '$' || lista->getJugador()->derecha->data == '!')
@@ -171,22 +171,22 @@ void Juego::CargarJuego() {
     }
 }
 void Juego::Cargartexturas() {
-    CargaGrafica CargaFondoMenu = CargaGrafica("MenuFondo.jpg", 0, 0, 1, 1, FondoMenuTx, FondoMenuSpt,0);
-    CargaGrafica CargaLogo = CargaGrafica("logoSokoban.png",405,100,0.65,0.65, LogoTx, LogoSpt,1);
-    CargaGrafica CargaBtnJugar = CargaGrafica("btnJugar.png", 400, 390, 0.9, 0.9, BtnJugarTx, BtnJugarSpt,1);
-    CargaGrafica CargaBtnCargar = CargaGrafica("btnCargarPartida.png", 400, 510, 0.9, 0.9, BtnCargarPartidaTx, BtnCargarPartidaSpt, 1);
-    CargaGrafica CargaBtnSalir = CargaGrafica("btnSalir.png", 400, 630, 0.9, 0.9, BtnSalirTx, BtnSalirSpt, 1);
-    CargaGrafica CargaBtnNivel1 = CargaGrafica("btnNivel1.png", 160, 300, 0.75, 0.75, BtnNivel1Tx, BtnNivel1Spt, 1);
-    CargaGrafica CargaBtnNivel2 = CargaGrafica("btnNivel2.png", 360, 500, 0.75, 0.75, BtnNivel2Tx, BtnNivel2Spt, 1);
-    CargaGrafica CargaBtnNivel3 = CargaGrafica("btnNivel3.png", 560, 300, 0.75, 0.75, BtnNivel3Tx, BtnNivel3Spt, 1);
-    CargaGrafica CargaBtnNivel4 = CargaGrafica("btnNivel4.png", 760, 500, 0.75, 0.75, BtnNivel4Tx, BtnNivel4Spt, 1);
-    CargaGrafica CargaBtnNivel5 = CargaGrafica("btnNivel5.png", 960, 300, 0.75, 0.75, BtnNivel5Tx, BtnNivel5Spt, 1);
-    CargaGrafica CargaBtnDelvolverS = CargaGrafica("btnDevolverS.png", 80, 800, 0.50, 0.65, BtnDevolverSTx, BtnDevolverSSpt, 1);
-    CargaGrafica CargaBtnReiniciar = CargaGrafica("btnReiniciar.png", 1050, 200, 0.35, 0.35, BtnReiniciarTx, BtnReiniciarSpt, 1);
-    CargaGrafica CargaBtnHome = CargaGrafica("btnHome.png", 1060, 310, 0.68, 0.7, BtnHomeTx, BtnHomeSpt, 1);
-    CargaGrafica CargaBtnNiveles = CargaGrafica("btnNiveles.png", 1070, 410, 0.68, 0.7, BtnNivelesTx, BtnNivelesSpt, 1);
-    CargaGrafica CargaBtnRepeticion = CargaGrafica("btnRepeticion.png", 1050, 500, 0.35, 0.35, BtnRepeticionTx, BtnRepeticionSpt, 1);
-    CargaGrafica CargaBarraVictoria = CargaGrafica("BarraVictoria.png", 1050, 500, 0.35, 0.35, BtnRepeticionTx, BtnRepeticionSpt, 1);
+    CargaGrafica CargaFondoMenu = CargaGrafica("imagenes/MenuFondo.jpg", 0, 0, 1, 1, FondoMenuTx, FondoMenuSpt,0);
+    CargaGrafica CargaLogo = CargaGrafica("imagenes/logoSokoban.png",405,100,0.65,0.65, LogoTx, LogoSpt,1);
+    CargaGrafica CargaBtnJugar = CargaGrafica("imagenes/btnJugar.png", 400, 390, 0.9, 0.9, BtnJugarTx, BtnJugarSpt,1);
+    CargaGrafica CargaBtnCargar = CargaGrafica("imagenes/btnCargarPartida.png", 400, 510, 0.9, 0.9, BtnCargarPartidaTx, BtnCargarPartidaSpt, 1);
+    CargaGrafica CargaBtnSalir = CargaGrafica("imagenes/btnSalir.png", 400, 630, 0.9, 0.9, BtnSalirTx, BtnSalirSpt, 1);
+    CargaGrafica CargaBtnNivel1 = CargaGrafica("imagenes/btnNivel1.png", 160, 300, 0.75, 0.75, BtnNivel1Tx, BtnNivel1Spt, 1);
+    CargaGrafica CargaBtnNivel2 = CargaGrafica("imagenes/btnNivel2.png", 360, 500, 0.75, 0.75, BtnNivel2Tx, BtnNivel2Spt, 1);
+    CargaGrafica CargaBtnNivel3 = CargaGrafica("imagenes/btnNivel3.png", 560, 300, 0.75, 0.75, BtnNivel3Tx, BtnNivel3Spt, 1);
+    CargaGrafica CargaBtnNivel4 = CargaGrafica("imagenes/btnNivel4.png", 760, 500, 0.75, 0.75, BtnNivel4Tx, BtnNivel4Spt, 1);
+    CargaGrafica CargaBtnNivel5 = CargaGrafica("imagenes/btnNivel5.png", 960, 300, 0.75, 0.75, BtnNivel5Tx, BtnNivel5Spt, 1);
+    CargaGrafica CargaBtnDelvolverS = CargaGrafica("imagenes/btnDevolverS.png", 80, 800, 0.50, 0.65, BtnDevolverSTx, BtnDevolverSSpt, 1);
+    CargaGrafica CargaBtnReiniciar = CargaGrafica("imagenes/btnReiniciar.png", 1050, 200, 0.35, 0.35, BtnReiniciarTx, BtnReiniciarSpt, 1);
+    CargaGrafica CargaBtnHome = CargaGrafica("imagenes/btnHome.png", 1060, 310, 0.68, 0.7, BtnHomeTx, BtnHomeSpt, 1);
+    CargaGrafica CargaBtnNiveles = CargaGrafica("imagenes/btnNiveles.png", 1070, 410, 0.68, 0.7, BtnNivelesTx, BtnNivelesSpt, 1);
+    CargaGrafica CargaBtnRepeticion = CargaGrafica("imagenes/btnRepeticion.png", 1050, 500, 0.35, 0.35, BtnRepeticionTx, BtnRepeticionSpt, 1);
+    CargaGrafica CargaBarraVictoria = CargaGrafica("imagenes/BarraVictoria.png", 1050, 500, 0.35, 0.35, BtnRepeticionTx, BtnRepeticionSpt, 1);
     
 }
 void Juego::CargaEscenas() {
@@ -221,9 +221,9 @@ void Juego::CargaEscenas() {
                 nivel = new Nivel(1);
                 CargarLista();
 
-                CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 300, 420, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
-                CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 840, 540, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
-                CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
+                CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 300, 420, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
+                CargaGrafica CargaMeta2 = CargaGrafica("imagenes/Meta1.png", 840, 540, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
+                CargaGrafica CargaMeta3 = CargaGrafica("imagenes/Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
                 Inicio = true;
             }
             for (int i = 0; i < 15; i++)
@@ -244,9 +244,9 @@ void Juego::CargaEscenas() {
                 window.clear();
                 nivel = new Nivel(2);
                 CargarLista();
-                CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 600, 240, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
-                CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 660, 240, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
-                CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
+                CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 600, 240, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
+                CargaGrafica CargaMeta2 = CargaGrafica("imagenes/Meta1.png", 660, 240, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
+                CargaGrafica CargaMeta3 = CargaGrafica("imagenes/Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
                 Inicio = true;
             }
             for (int i = 0; i < 15; i++)
@@ -266,13 +266,13 @@ void Juego::CargaEscenas() {
                 window.clear();
                 nivel = new Nivel(3);
                 CargarLista();
-                CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 420, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
-                CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 420, 420, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
-                CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 660, 360, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
-                CargaGrafica CargaMeta4 = CargaGrafica("Meta1.png", 600, 480, 0.15, 0.15, Meta4Tx, Meta4Spt, 1);
-                CargaGrafica CargaMeta5 = CargaGrafica("Meta1.png", 540, 540, 0.15, 0.15, Meta5Tx, Meta5Spt, 1);
-                CargaGrafica CargaMeta6 = CargaGrafica("Meta1.png", 600, 600, 0.15, 0.15, Meta6Tx, Meta6Spt, 1);
-                CargaGrafica CargaMeta7 = CargaGrafica("Meta1.png", 720, 540, 0.15, 0.15, Meta7Tx, Meta7Spt, 1);
+                CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 420, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
+                CargaGrafica CargaMeta2 = CargaGrafica("imagenes/Meta1.png", 420, 420, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
+                CargaGrafica CargaMeta3 = CargaGrafica("imagenes/Meta1.png", 660, 360, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
+                CargaGrafica CargaMeta4 = CargaGrafica("imagenes/Meta1.png", 600, 480, 0.15, 0.15, Meta4Tx, Meta4Spt, 1);
+                CargaGrafica CargaMeta5 = CargaGrafica("imagenes/Meta1.png", 540, 540, 0.15, 0.15, Meta5Tx, Meta5Spt, 1);
+                CargaGrafica CargaMeta6 = CargaGrafica("imagenes/Meta1.png", 600, 600, 0.15, 0.15, Meta6Tx, Meta6Spt, 1);
+                CargaGrafica CargaMeta7 = CargaGrafica("imagenes/Meta1.png", 720, 540, 0.15, 0.15, Meta7Tx, Meta7Spt, 1);
                 Inicio = true;
             }
             for (int i = 0; i < 15; i++)
@@ -296,10 +296,10 @@ void Juego::CargaEscenas() {
                 window.clear();
                 nivel = new Nivel(4);
                 CargarLista();
-                CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 540, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
-                CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 540, 360, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
-                CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 540, 420, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
-                CargaGrafica CargaMeta4 = CargaGrafica("Meta1.png", 540, 480, 0.15, 0.15, Meta4Tx, Meta4Spt, 1);
+                CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 540, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
+                CargaGrafica CargaMeta2 = CargaGrafica("imagenes/Meta1.png", 540, 360, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
+                CargaGrafica CargaMeta3 = CargaGrafica("imagenes/Meta1.png", 540, 420, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
+                CargaGrafica CargaMeta4 = CargaGrafica("imagenes/Meta1.png", 540, 480, 0.15, 0.15, Meta4Tx, Meta4Spt, 1);
                 Inicio = true;
             }
             for (int i = 0; i < 15; i++)

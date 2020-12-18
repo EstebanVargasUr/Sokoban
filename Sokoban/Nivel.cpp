@@ -6,39 +6,39 @@ Nivel::Nivel(int nivel) {
 	switch (nivel)
 	{
 	case 1:
-		if (!TexturaFondo.loadFromFile("fondo1.jpg") || !TexturaMuro.loadFromFile("Muro1.png"))
+		if (!TexturaFondo.loadFromFile("imagenes/fondo1.jpg") || !TexturaMuro.loadFromFile("imagenes/Muro1.png"))
 		{
 			cout << "No se cargo la imagen correctamente" << endl;
 		}
 		break;
 	case 2:
-		if (!TexturaFondo.loadFromFile("fondo1.jpg") || !TexturaMuro.loadFromFile("Muro2.png"))
+		if (!TexturaFondo.loadFromFile("imagenes/fondo1.jpg") || !TexturaMuro.loadFromFile("imagenes/Muro2.png"))
 		{
 			cout << "No se cargo la imagen correctamente" << endl;
 		}
 		break;
 	case 3:
-		if (!TexturaFondo.loadFromFile("fondo1.jpg") || !TexturaMuro.loadFromFile("Muro3.jpg"))
+		if (!TexturaFondo.loadFromFile("imagenes/fondo1.jpg") || !TexturaMuro.loadFromFile("imagenes/Muro3.jpg"))
 		{
 			cout << "No se cargo la imagen correctamente" << endl;
 		}
 		break;
 
 	case 4:
-		if (!TexturaFondo.loadFromFile("fondo1.jpg") || !TexturaMuro.loadFromFile("Muro4.png"))
+		if (!TexturaFondo.loadFromFile("imagenes/fondo1.jpg") || !TexturaMuro.loadFromFile("imagenes/Muro4.png"))
 		{
 			cout << "No se cargo la imagen correctamente" << endl;
 		}
 		break;
 	}
 
-	if(!TexturaCaja.loadFromFile("caja1.png") || !TexturaCajaMeta.loadFromFile("caja2.png") || !TexturaMeta.loadFromFile("Meta1.png"))
+	if(!TexturaCaja.loadFromFile("imagenes/caja1.png") || !TexturaCajaMeta.loadFromFile("imagenes/caja2.png") || !TexturaMeta.loadFromFile("imagenes/Meta1.png"))
 	{
 		cout << "No se cargo la imagen correctamente" << endl;
 	}
 
-	if (!TexturaPersonajeFrente.loadFromFile("PersonajeFrente.png") || !TexturaPersonajeAtras.loadFromFile("PersonajeAtras1.png") || 
-		!TexturaPersonajeDerecha.loadFromFile("PersonajeDerecha.png") || !TexturaPersonajeIzquierda.loadFromFile("PersonajeIzquierda.png"))
+	if (!TexturaPersonajeFrente.loadFromFile("imagenes/PersonajeFrente.png") || !TexturaPersonajeAtras.loadFromFile("imagenes/PersonajeAtras.png") || 
+		!TexturaPersonajeDerecha.loadFromFile("imagenes/PersonajeDerecha.png") || !TexturaPersonajeIzquierda.loadFromFile("imagenes/PersonajeIzquierda.png"))
 	{
 		cout << "No se cargo la imagen correctamente" << endl;;
 	}
