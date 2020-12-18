@@ -8,7 +8,9 @@ void Juego::CargarJuego() {
     
     icono.loadFromFile("imagenes/icono.png");
     window.setIcon(icono.getSize().x, icono.getSize().y, icono.getPixelsPtr());
+    
     Cargartexturas();
+    CargarSonidos();
     
     while (window.isOpen())
     {
@@ -30,9 +32,11 @@ void Juego::CargarJuego() {
                         if (BtnJugarSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 1;
+                            Inicio = false;
                         }
                         if (BtnSalirSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
+                            MusicaInicial.stop();
                             window.close();
                         }
                     }
@@ -40,22 +44,27 @@ void Juego::CargarJuego() {
                         if (BtnDevolverSSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 0;
+                            Inicio = false;
                         }
                         if (BtnNivel1Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 2;
+                            Inicio = false;
                         }
                         if (BtnNivel2Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 3;
+                            Inicio = false;
                         }
                         if (BtnNivel3Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 4;
+                            Inicio = false;
                         }
                         if (BtnNivel4Spt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 5;
+                            Inicio = false;
                         }
                     }
 
@@ -193,9 +202,46 @@ void Juego::Cargartexturas() {
     CargaGrafica CargaFondoNivel4 = CargaGrafica("imagenes/fondo4.png", 0, 0, 2, 2, FondoNivel4Tx, FondoNivel4Spt, 0);
     
 }
+void Juego::CargarSonidos() {
+ 
+    MusicaInicial.openFromFile("sonidos/Musica_Inicio.wav");
+    MusicaInicial.setVolume(15.f);
+    MusicaInicial.setLoop(true);
+    
+    MusicaSelector.openFromFile("sonidos/Selector_Niveles.wav");
+    MusicaSelector.setVolume(15.f);
+    MusicaSelector.setLoop(true); 
+
+    MusicaNivel1.openFromFile("sonidos/Nivel_frio.wav");
+    MusicaNivel1.setVolume(15.f);
+    MusicaNivel1.setLoop(true);
+    
+    MusicaNivel2.openFromFile("sonidos/Nivel_agua.wav");
+    MusicaNivel2.setVolume(15.f);
+    MusicaNivel2.setLoop(true);
+    
+    MusicaNivel3.openFromFile("sonidos/Nivel_Planta.wav");
+    MusicaNivel3.setVolume(15.f);
+    MusicaNivel3.setLoop(true);
+    
+    MusicaNivel4.openFromFile("sonidos/Nivel_Lava.wav");
+    MusicaNivel4.setVolume(15.f);
+    MusicaNivel4.setLoop(true);
+}
 void Juego::CargaEscenas() {
 
     if (Escena == 0) {
+
+        if (!Inicio) {
+            MusicaInicial.play();
+            MusicaSelector.stop();
+            MusicaNivel1.stop();
+            MusicaNivel2.stop();
+            MusicaNivel3.stop();
+            MusicaNivel4.stop();
+            Inicio = true;
+        }
+
         window.clear();
         window.draw(FondoMenuSpt);
         window.draw(LogoSpt);
@@ -205,8 +251,18 @@ void Juego::CargaEscenas() {
         window.display();
     }
     if (Escena == 1) {
-        window.clear();
 
+        if (!Inicio) {
+            MusicaInicial.stop();
+            MusicaSelector.play();
+            MusicaNivel1.stop();
+            MusicaNivel2.stop();
+            MusicaNivel3.stop();
+            MusicaNivel4.stop();
+            Inicio = true;
+        }
+
+        window.clear();
         window.draw(FondoMenuSpt);
         window.draw(BtnNivel1Spt);
         window.draw(BtnNivel2Spt);
@@ -214,7 +270,6 @@ void Juego::CargaEscenas() {
         window.draw(BtnNivel4Spt);
         window.draw(BtnNivel5Spt);
         window.draw(BtnDevolverSSpt);
-
         window.display();
     }
     if (Escena == 2 || Escena == 3 || Escena == 4 || Escena == 5)
@@ -226,6 +281,9 @@ void Juego::CargaEscenas() {
             window.draw(FondoNivel1Spt);
 
             if (!Inicio) {
+                MusicaSelector.stop();
+                MusicaNivel1.play();
+
                 nivel = new Nivel(1);
                 CargarLista();
 
@@ -252,6 +310,9 @@ void Juego::CargaEscenas() {
             window.draw(FondoNivel2Spt);
 
             if (!Inicio) {
+                MusicaSelector.stop();
+                MusicaNivel1.stop();
+                MusicaNivel2.play();
 
                 nivel = new Nivel(2);
                 CargarLista();
@@ -277,6 +338,9 @@ void Juego::CargaEscenas() {
             window.draw(FondoNivel3Spt);
 
             if (!Inicio) {
+                MusicaSelector.stop();
+                MusicaNivel2.stop();
+                MusicaNivel3.play();
 
                 nivel = new Nivel(3);
                 CargarLista();
@@ -310,6 +374,9 @@ void Juego::CargaEscenas() {
             window.draw(FondoNivel4Spt);
 
             if (!Inicio) {
+                MusicaSelector.stop();
+                MusicaNivel3.stop();
+                MusicaNivel4.play();
 
                 nivel = new Nivel(4);
                 CargarLista();

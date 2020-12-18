@@ -81,6 +81,14 @@ private:
 	Nivel *nivel;
 	Lista *lista;
 
+    //SONIDOS
+    Music MusicaInicial;
+    Music MusicaSelector;
+    Music MusicaNivel1;
+    Music MusicaNivel2;
+    Music MusicaNivel3;
+    Music MusicaNivel4;
+
     //Niveles 
     char tabla1[15][20] = { {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                             {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -168,6 +176,7 @@ private:
 	void Cargartexturas();
 	void CargaEscenas();
 	void CargarLista();
+    void CargarSonidos();
 	
 	
 };
