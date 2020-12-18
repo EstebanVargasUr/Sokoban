@@ -433,6 +433,16 @@ void Lista::mostrar()
 	cout << endl;
 }
 
+int Lista::fila()
+{
+	return jugador->fila;
+}
+
+int Lista::columna()
+{
+	return jugador->columna;
+}
+
 	/*Nodo* ini = inicial;
 	//fila 0
 	while (ini != NULL)

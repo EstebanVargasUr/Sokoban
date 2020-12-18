@@ -10,7 +10,7 @@ int main()
     Juego* Ventana;
     Ventana = new Juego();
     Ventana->CargarJuego();
-    Lista* lista = new Lista();
+   /* Lista* lista = new Lista();
     char tabla1 [15][20] = { {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                             {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                             {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -92,9 +92,9 @@ int main()
                             {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '} };
     for(int i = 0; i<15;i++)
         for(int j = 0; j<20;j++)
-            lista->insertar(tabla4[i][j],i,j);
+            lista->insertar(tabla4[i][j],i,j);*/
     
-    lista->mostrar();
+    //lista->mostrar();
     system("PAUSE");
     return 0;
 }

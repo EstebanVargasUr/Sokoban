@@ -26,6 +26,8 @@ public:
     bool izquierda();
     bool derecha();
     void mostrar();
+    int fila();
+    int columna();
 };
 
 #endif

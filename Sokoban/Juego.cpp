@@ -66,6 +66,63 @@ void Juego::CargarJuego() {
 
                 break;
  
+            case Event::KeyPressed:
+                if (event.key.code == Keyboard::Up || event.key.code == Keyboard::W)
+                {
+                    if (Escena != 0 && Escena != 1)
+                    {
+                        if (lista->mover("arriba")) {
+                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeAtras());
+                            nivel->casillas[lista->fila()+1][lista->columna()]->sprite.setTexture(nivel->getTexturaFondo());
+                        }
+                    }
+
+                    
+                }
+                if (event.key.code == Keyboard::Down || event.key.code == Keyboard::S)
+                {
+                    if (Escena != 0 && Escena != 1)
+                    {
+                        if (lista->mover("abajo")) {
+                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeAtras());
+                            nivel->casillas[lista->fila() - 1][lista->columna()]->sprite.setTexture(nivel->getTexturaFondo());
+                        }
+                    }
+                    
+                }
+                if (event.key.code == Keyboard::Left || event.key.code == Keyboard::A)
+                {
+                    if (Escena != 0 && Escena != 1)
+                    {
+                        if (lista->mover("izquierda")) {
+                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeAtras());
+                            nivel->casillas[lista->fila()][lista->columna() + 1]->sprite.setTexture(nivel->getTexturaFondo());
+                        }
+                    }
+                    
+                }
+                if (event.key.code == Keyboard::Right || event.key.code == Keyboard::D)
+                {
+                    if (Escena != 0 && Escena != 1)
+                    {
+                        if (lista->mover("derecha")) {
+                            nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeAtras());
+                            nivel->casillas[lista->fila()][lista->columna() - 1]->sprite.setTexture(nivel->getTexturaFondo());
+                        }
+                    }
+                    
+                }
+                if (event.key.code == Keyboard::Escape)
+                {
+                    if (Escena != 0 && Escena != 1)
+                    {
+                        Escena = 0;
+                    }
+
+
+                }
+                break;
+
             default:
                 break;
             }
@@ -112,24 +169,27 @@ void Juego::CargaEscenas() {
         window.draw(BtnNivel4Spt);
         window.draw(BtnNivel5Spt);
         window.draw(BtnDevolverSSpt);
+
         window.display();
     }
     if (Escena == 2) {
         if (!Inicio) {
             window.clear();
             nivel = new Nivel(1);
+            CargarLista();
+
             CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 300, 420, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
             CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 840, 540, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
             CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
             Inicio = true;
         }
-            for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 20; j++)
             {
-                for (int j = 0; j < 20; j++)
-                {
-                    window.draw(nivel->casillas[i][j]->sprite);
-                }
+                window.draw(nivel->casillas[i][j]->sprite);
             }
+        }
             
         window.draw(Meta1Spt);
         window.draw(Meta2Spt);
@@ -141,6 +201,8 @@ void Juego::CargaEscenas() {
         if (!Inicio) {
             window.clear();
             nivel = new Nivel(2);
+            CargarLista();
+
             CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 600, 240, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
             CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 660, 240, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
             CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
@@ -163,6 +225,8 @@ void Juego::CargaEscenas() {
         if (!Inicio) {
             window.clear();
             nivel = new Nivel(3);
+            CargarLista();
+
             CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 420, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
             CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 420, 420, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
             CargaGrafica CargaMeta3 = CargaGrafica("Meta1.png", 660, 360, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
@@ -195,6 +259,7 @@ void Juego::CargaEscenas() {
         if (!Inicio) {
             window.clear();
             nivel = new Nivel(4);
+            CargarLista();
 
             CargaGrafica CargaMeta1 = CargaGrafica("Meta1.png", 540, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
             CargaGrafica CargaMeta2 = CargaGrafica("Meta1.png", 540, 360, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
@@ -214,7 +279,26 @@ void Juego::CargaEscenas() {
         window.draw(Meta2Spt);
         window.draw(Meta3Spt);
         window.draw(Meta4Spt);
+
         window.display();
     }
+}
+
+void Juego::CargarLista()
+{
+    lista = new Lista();
+
+    for (int i = 0; i < 15; i++) {
+        for (int j = 0; j < 20; j++) {
+            if (Escena == 2)
+                lista->insertar(tabla1[i][j], i, j);
+            else if (Escena == 3)
+                lista->insertar(tabla2[i][j], i, j);
+            else if (Escena == 4)
+                lista->insertar(tabla3[i][j], i, j);
+            else if (Escena == 5)
+                lista->insertar(tabla4[i][j], i, j);
+        }
+    } 
 }
 

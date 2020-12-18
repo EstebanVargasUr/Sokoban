@@ -25,14 +25,6 @@ private:
 	Texture TexturaPersonajeIzquierda;
 	Texture TexturaPersonajeFrente;
 
-	Vector2i posicionSalida;
-	Vector2i posicionJugador;
-	vector<Vector2i> poscicionParedes;
-	vector<Vector2i> poscicionCajas;
-	vector<Vector2i> poscicionMetas;
-
-	void setPosicionParedes(); // ?
-	void setEstadoInicial(int);
 	void setTablero(int);
 	
 	void setNivel1();
@@ -41,11 +33,15 @@ private:
 	void setNivel4();
 
 public:
-	vector<vector<Tablero*>> casillas;
-	int filas;
-	int columnas;
-
 	Nivel(int);
+	vector<vector<Tablero*>> casillas;
+
+	Texture& getTexturaPersonajeAtras();
+	Texture& getTexturaPersonajeDerecha();
+	Texture& getTexturaPersonajeIzquierda();
+	Texture& getTexturaPersonajeFrente();
+	Texture& getTexturaFondo();
+
 };
 
 #endif

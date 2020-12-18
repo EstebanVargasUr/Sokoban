@@ -2,8 +2,6 @@
 #include "Nivel.h"
 
 Nivel::Nivel(int nivel) {
-	filas = 15;
-	columnas = 20;
 
 	switch (nivel)
 	{
@@ -45,64 +43,32 @@ Nivel::Nivel(int nivel) {
 		cout << "No se cargo la imagen correctamente" << endl;;
 	}
 
-	setEstadoInicial(nivel);
-}
-
-void Nivel::setEstadoInicial(int nivel) {
-	posicionJugador = Vector2i(8, 7); // ?
 	setTablero(nivel);
 }
 
-void Nivel::setPosicionParedes() { // ?
-	poscicionParedes.clear();
-	poscicionParedes.push_back(Vector2i(3, 4));
-	poscicionParedes.push_back(Vector2i(3, 5));
-	poscicionParedes.push_back(Vector2i(3, 6));
-	poscicionParedes.push_back(Vector2i(3, 7));
-	poscicionParedes.push_back(Vector2i(3, 8));
-	poscicionParedes.push_back(Vector2i(3, 9));
-	poscicionParedes.push_back(Vector2i(3, 10));
-	poscicionParedes.push_back(Vector2i(3, 11));
-	poscicionParedes.push_back(Vector2i(3, 12));
-	poscicionParedes.push_back(Vector2i(3, 13));
-	poscicionParedes.push_back(Vector2i(4, 4));
-	poscicionParedes.push_back(Vector2i(4, 13));
-	poscicionParedes.push_back(Vector2i(4, 14));
-	poscicionParedes.push_back(Vector2i(4, 15));
-	poscicionParedes.push_back(Vector2i(5, 4));
-	poscicionParedes.push_back(Vector2i(5, 6));
-	poscicionParedes.push_back(Vector2i(5, 8));
-	poscicionParedes.push_back(Vector2i(5, 15));
-	poscicionParedes.push_back(Vector2i(6, 4));
-	poscicionParedes.push_back(Vector2i(6, 9));
-	poscicionParedes.push_back(Vector2i(6, 11));
-	poscicionParedes.push_back(Vector2i(6, 13));
-	poscicionParedes.push_back(Vector2i(6, 15));
-	poscicionParedes.push_back(Vector2i(7, 4));
-	poscicionParedes.push_back(Vector2i(7, 6));
-	poscicionParedes.push_back(Vector2i(7, 13));
-	poscicionParedes.push_back(Vector2i(7, 15));
-	poscicionParedes.push_back(Vector2i(8, 4));
-	poscicionParedes.push_back(Vector2i(8, 9));
-	poscicionParedes.push_back(Vector2i(8, 10));
-	poscicionParedes.push_back(Vector2i(8, 11));
-	poscicionParedes.push_back(Vector2i(8, 15));
-	poscicionParedes.push_back(Vector2i(9, 4));
-	poscicionParedes.push_back(Vector2i(9, 5));
-	poscicionParedes.push_back(Vector2i(9, 6));
-	poscicionParedes.push_back(Vector2i(9, 15));
-	poscicionParedes.push_back(Vector2i(10, 6));
-	poscicionParedes.push_back(Vector2i(10, 7));
-	poscicionParedes.push_back(Vector2i(10, 8));
-	poscicionParedes.push_back(Vector2i(10, 12));
-	poscicionParedes.push_back(Vector2i(10, 13));
-	poscicionParedes.push_back(Vector2i(10, 14));
-	poscicionParedes.push_back(Vector2i(10, 15));
-	poscicionParedes.push_back(Vector2i(11, 8));
-	poscicionParedes.push_back(Vector2i(11, 9));
-	poscicionParedes.push_back(Vector2i(11, 10));
-	poscicionParedes.push_back(Vector2i(11, 11));
-	poscicionParedes.push_back(Vector2i(11, 12));
+Texture& Nivel::getTexturaPersonajeAtras()
+{
+	return TexturaPersonajeAtras;
+}
+
+Texture& Nivel::getTexturaPersonajeDerecha()
+{
+	return TexturaPersonajeDerecha;
+}
+
+Texture& Nivel::getTexturaPersonajeIzquierda()
+{
+	return TexturaPersonajeIzquierda;
+}
+
+Texture& Nivel::getTexturaPersonajeFrente()
+{
+	return TexturaPersonajeFrente;
+}
+
+Texture& Nivel::getTexturaFondo()
+{
+	return TexturaFondo;
 }
 
 void Nivel::setNivel1() {
