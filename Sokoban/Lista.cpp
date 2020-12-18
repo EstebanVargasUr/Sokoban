@@ -65,6 +65,10 @@ void Lista::insertar(char dato, int fila, int columna)
 		jugador = nuevoNodo;
 }
 
+Nodo* Lista::getJugador() {
+	return jugador;
+}
+
 bool Lista::mover(string pos)
 {
 	if (pos == "arriba") {

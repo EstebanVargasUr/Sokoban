@@ -70,6 +70,10 @@ Texture& Nivel::getTexturaFondo()
 {
 	return TexturaFondo;
 }
+Texture& Nivel::getTexturaCaja()
+{
+	return TexturaCaja;
+}
 
 void Nivel::setNivel1() {
 	//MUROS

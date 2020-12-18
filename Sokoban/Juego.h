@@ -38,6 +38,12 @@ private:
 	Texture Meta5Tx;
 	Texture Meta6Tx;
 	Texture Meta7Tx;
+	Texture BtnHomeTx;
+	Texture BtnReiniciarTx;
+	Texture BtnNivelesTx;
+	Texture BtnRepeticionTx;
+	Texture BarraVictoriaTx;
+
 
 	//Sprites
 	Sprite FondoMenuSpt;
@@ -58,6 +64,11 @@ private:
 	Sprite Meta5Spt;
 	Sprite Meta6Spt;
 	Sprite Meta7Spt;
+	Sprite BtnHomeSpt;
+	Sprite BtnReiniciarSpt;
+	Sprite BtnNivelesSpt;
+	Sprite BtnRepeticionSpt;
+	Sprite BarraVictoriaSpt;
 
 	Nivel *nivel;
 	Lista *lista;

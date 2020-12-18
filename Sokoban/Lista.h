@@ -28,6 +28,8 @@ public:
     void mostrar();
     int fila();
     int columna();
+
+    Nodo* getJugador();
 };
 
 #endif

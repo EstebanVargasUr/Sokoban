@@ -41,6 +41,7 @@ public:
 	Texture& getTexturaPersonajeIzquierda();
 	Texture& getTexturaPersonajeFrente();
 	Texture& getTexturaFondo();
+	Texture& getTexturaCaja();
 
 };
 
