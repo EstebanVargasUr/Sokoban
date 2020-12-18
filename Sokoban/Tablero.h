@@ -16,9 +16,9 @@ public:
 	Texture textura;
 	Sprite sprite;
 
-	Tablero(Texture&,float,float); //Nombre textura, pos x, pos y
+	Tablero(Texture&,float,float,bool); //Nombre textura, pos x, pos y
 
-	bool setSprite(Texture&); //String para la textura
+	void setSprite(Texture&,bool); //String para la textura
 	
 };
 #endif 

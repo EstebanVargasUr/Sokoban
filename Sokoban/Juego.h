@@ -21,6 +21,10 @@ private:
 	bool Inicio = false;
 	//Texturas
 	Texture FondoMenuTx;
+    Texture FondoNivel1Tx;
+    Texture FondoNivel2Tx;
+    Texture FondoNivel3Tx;
+    Texture FondoNivel4Tx;
 	Texture LogoTx;
 	Texture BtnJugarTx;
 	Texture BtnCargarPartidaTx;
@@ -47,6 +51,10 @@ private:
 
 	//Sprites
 	Sprite FondoMenuSpt;
+    Sprite FondoNivel1Spt;
+    Sprite FondoNivel2Spt;
+    Sprite FondoNivel3Spt;
+    Sprite FondoNivel4Spt;
 	Sprite LogoSpt;
 	Sprite BtnJugarSpt;
 	Sprite BtnCargarPartidaSpt;

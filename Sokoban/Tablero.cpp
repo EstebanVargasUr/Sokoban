@@ -1,22 +1,23 @@
 #include "pch.h"
 #include "Tablero.h"
+#include "Nivel.h"
 
-Tablero::Tablero(Texture &_textura, float x, float y) {
+Tablero::Tablero(Texture &_textura, float x, float y, bool fondo) {
 
-	if (!setSprite(_textura))
-	{
-		return;
-	}
+	setSprite(_textura,fondo);
+
 	posicion = Vector2f(x, y);
 	sprite.setPosition(posicion);
-
 }
 
-bool Tablero::setSprite(Texture &_textura) {
+void Tablero::setSprite(Texture &_textura,bool fondo) {
 
+	if (fondo == true)
+	{
+		sprite.setScale(0.15, 0.15);
+		return;
+	}
+	
 	_textura.setSmooth(true);
 	sprite.setTexture(_textura);
-	sprite.setScale(0.15, 0.15);
-	
-	return true;
 }

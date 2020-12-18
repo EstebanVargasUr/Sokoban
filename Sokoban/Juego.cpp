@@ -187,6 +187,10 @@ void Juego::Cargartexturas() {
     CargaGrafica CargaBtnNiveles = CargaGrafica("imagenes/btnNiveles.png", 1070, 410, 0.68, 0.7, BtnNivelesTx, BtnNivelesSpt, 1);
     CargaGrafica CargaBtnRepeticion = CargaGrafica("imagenes/btnRepeticion.png", 1050, 500, 0.35, 0.35, BtnRepeticionTx, BtnRepeticionSpt, 1);
     CargaGrafica CargaBarraVictoria = CargaGrafica("imagenes/BarraVictoria.png", 1050, 500, 0.35, 0.35, BtnRepeticionTx, BtnRepeticionSpt, 1);
+    CargaGrafica CargaFondoNivel1 = CargaGrafica("imagenes/fondo1.jpg", 0, 0, 2.5, 2.5, FondoNivel1Tx, FondoNivel1Spt, 0);
+    CargaGrafica CargaFondoNivel2 = CargaGrafica("imagenes/fondo2.png", 0, 0, 2.3, 2.3, FondoNivel2Tx, FondoNivel2Spt, 0);
+    CargaGrafica CargaFondoNivel3 = CargaGrafica("imagenes/fondo3.jpg", 0, 0, 3.3, 3.3, FondoNivel3Tx, FondoNivel3Spt, 0);
+    CargaGrafica CargaFondoNivel4 = CargaGrafica("imagenes/fondo4.png", 0, 0, 2, 2, FondoNivel4Tx, FondoNivel4Spt, 0);
     
 }
 void Juego::CargaEscenas() {
@@ -215,9 +219,13 @@ void Juego::CargaEscenas() {
     }
     if (Escena == 2 || Escena == 3 || Escena == 4 || Escena == 5)
     {
+        window.clear();
+
         if (Escena == 2) {
+
+            window.draw(FondoNivel1Spt);
+
             if (!Inicio) {
-                window.clear();
                 nivel = new Nivel(1);
                 CargarLista();
 
@@ -240,8 +248,11 @@ void Juego::CargaEscenas() {
         }
 
         if (Escena == 3) {
+
+            window.draw(FondoNivel2Spt);
+
             if (!Inicio) {
-                window.clear();
+
                 nivel = new Nivel(2);
                 CargarLista();
                 CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 600, 240, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
@@ -262,8 +273,11 @@ void Juego::CargaEscenas() {
             window.draw(Meta3Spt);
         }
         if (Escena == 4) {
+
+            window.draw(FondoNivel3Spt);
+
             if (!Inicio) {
-                window.clear();
+
                 nivel = new Nivel(3);
                 CargarLista();
                 CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 420, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
@@ -292,8 +306,11 @@ void Juego::CargaEscenas() {
             window.draw(Meta7Spt);
         }
         if (Escena == 5) {
+
+            window.draw(FondoNivel4Spt);
+
             if (!Inicio) {
-                window.clear();
+
                 nivel = new Nivel(4);
                 CargarLista();
                 CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 540, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
