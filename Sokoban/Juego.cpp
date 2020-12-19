@@ -73,15 +73,42 @@ void Juego::CargarJuego() {
                         if (BtnHomeSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 0;
+                            while (lista->puntaje.empty() == false) {
+                                lista->puntaje.pop();
+                            }
                             Inicio = false;
                         }
                         if (BtnReiniciarSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
+                            while (lista->puntaje.empty() == false) {
+                                lista->puntaje.pop();
+                            }
                             Inicio = false;
                         }
                         if (BtnNivelesSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             Escena = 1;
+                            while (lista->puntaje.empty() == false) {
+                                lista->puntaje.pop();
+                            }
+                            Inicio = false;
+                        }
+                        if (Escena == 5) {
+                            if (BtnSiguienteSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                            {
+                                Escena = 0;
+                                while (lista->puntaje.empty() == false) {
+                                    lista->puntaje.pop();
+                                }
+                                Inicio = false;
+                            }
+                        }
+                        else if(BtnSiguienteSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            Escena = Escena+1;
+                            while (lista->puntaje.empty() == false) {
+                                lista->puntaje.pop();
+                            }
                             Inicio = false;
                         }
                     }
@@ -194,8 +221,9 @@ void Juego::Cargartexturas() {
     CargaGrafica CargaBtnReiniciar = CargaGrafica("imagenes/btnReiniciar.png", 1050, 200, 0.35, 0.35, BtnReiniciarTx, BtnReiniciarSpt, 1);
     CargaGrafica CargaBtnHome = CargaGrafica("imagenes/btnHome.png", 1060, 310, 0.68, 0.7, BtnHomeTx, BtnHomeSpt, 1);
     CargaGrafica CargaBtnNiveles = CargaGrafica("imagenes/btnNiveles.png", 1070, 410, 0.68, 0.7, BtnNivelesTx, BtnNivelesSpt, 1);
-    CargaGrafica CargaBtnRepeticion = CargaGrafica("imagenes/btnRepeticion.png", 1050, 500, 0.35, 0.35, BtnRepeticionTx, BtnRepeticionSpt, 1);
-    CargaGrafica CargaBarraVictoria = CargaGrafica("imagenes/BarraVictoria.png", 1050, 500, 0.35, 0.35, BtnRepeticionTx, BtnRepeticionSpt, 1);
+    CargaGrafica CargaBtnRepeticion = CargaGrafica("imagenes/btnRepeticion.png", 450, 360, 0.68, 0.7, BtnRepeticionTx, BtnRepeticionSpt, 1);
+    CargaGrafica CargaBtnSiguiente = CargaGrafica("imagenes/btnSiguiente.png", 650, 365, 0.68, 0.7, BtnSiguienteTx, BtnSiguienteSpt, 1);
+    CargaGrafica CargaBarraVictoria = CargaGrafica("imagenes/BarraVictoria.png", 300, 350, 0.35, 0.35, BarraVictoriaTx, BarraVictoriaSpt, 1);
     CargaGrafica CargaFondoNivel1 = CargaGrafica("imagenes/fondo1.jpg", 0, 0, 2.5, 2.5, FondoNivel1Tx, FondoNivel1Spt, 0);
     CargaGrafica CargaFondoNivel2 = CargaGrafica("imagenes/fondo2.png", 0, 0, 2.3, 2.3, FondoNivel2Tx, FondoNivel2Spt, 0);
     CargaGrafica CargaFondoNivel3 = CargaGrafica("imagenes/fondo3.jpg", 0, 0, 3.3, 3.3, FondoNivel3Tx, FondoNivel3Spt, 0);
@@ -286,7 +314,6 @@ void Juego::CargaEscenas() {
 
                 nivel = new Nivel(1);
                 CargarLista();
-
                 CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 300, 420, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
                 CargaGrafica CargaMeta2 = CargaGrafica("imagenes/Meta1.png", 840, 540, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
                 CargaGrafica CargaMeta3 = CargaGrafica("imagenes/Meta1.png", 720, 240, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
@@ -299,10 +326,14 @@ void Juego::CargaEscenas() {
                     window.draw(nivel->casillas[i][j]->sprite);
                 }
             }
-
             window.draw(Meta1Spt);
             window.draw(Meta2Spt);
             window.draw(Meta3Spt);
+            if (lista->puntaje.size() == 3) {
+                window.draw(BarraVictoriaSpt);
+                window.draw(BtnRepeticionSpt);
+                window.draw(BtnSiguienteSpt);
+            }
         }
 
         if (Escena == 3) {
@@ -332,6 +363,11 @@ void Juego::CargaEscenas() {
             window.draw(Meta1Spt);
             window.draw(Meta2Spt);
             window.draw(Meta3Spt);
+            if (lista->puntaje.size() == 3) {
+                window.draw(BarraVictoriaSpt);
+                window.draw(BtnRepeticionSpt);
+                window.draw(BtnSiguienteSpt);
+            }
         }
         if (Escena == 4) {
 
@@ -344,6 +380,7 @@ void Juego::CargaEscenas() {
 
                 nivel = new Nivel(3);
                 CargarLista();
+                lista->puntaje.push(1);
                 CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 420, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
                 CargaGrafica CargaMeta2 = CargaGrafica("imagenes/Meta1.png", 420, 420, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
                 CargaGrafica CargaMeta3 = CargaGrafica("imagenes/Meta1.png", 660, 360, 0.15, 0.15, Meta3Tx, Meta3Spt, 1);
@@ -368,6 +405,11 @@ void Juego::CargaEscenas() {
             window.draw(Meta5Spt);
             window.draw(Meta6Spt);
             window.draw(Meta7Spt);
+            if (lista->puntaje.size() == 7) {
+                window.draw(BarraVictoriaSpt);
+                window.draw(BtnRepeticionSpt);
+                window.draw(BtnSiguienteSpt);
+            }
         }
         if (Escena == 5) {
 
@@ -398,6 +440,11 @@ void Juego::CargaEscenas() {
             window.draw(Meta2Spt);
             window.draw(Meta3Spt);
             window.draw(Meta4Spt);
+            if (lista->puntaje.size() == 4) {
+                window.draw(BarraVictoriaSpt);
+                window.draw(BtnRepeticionSpt);
+                window.draw(BtnSiguienteSpt);
+            }
         }
 
         window.draw(BtnHomeSpt);

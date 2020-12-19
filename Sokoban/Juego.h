@@ -46,6 +46,7 @@ private:
 	Texture BtnReiniciarTx;
 	Texture BtnNivelesTx;
 	Texture BtnRepeticionTx;
+    Texture BtnSiguienteTx;
 	Texture BarraVictoriaTx;
 
 
@@ -76,8 +77,8 @@ private:
 	Sprite BtnReiniciarSpt;
 	Sprite BtnNivelesSpt;
 	Sprite BtnRepeticionSpt;
+    Sprite BtnSiguienteSpt;
 	Sprite BarraVictoriaSpt;
-
 	Nivel *nivel;
 	Lista *lista;
 

@@ -16,7 +16,6 @@ private:
     Nodo* inicial;
     Nodo* anterior;
     Nodo* jugador;
-
 public:
     Lista();
     void insertar(char,int,int);
@@ -28,7 +27,7 @@ public:
     void mostrar();
     int fila();
     int columna();
-
+    stack<int> puntaje;
     Nodo* getJugador();
 };
 

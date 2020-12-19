@@ -131,6 +131,7 @@ bool Lista::arriba()
 			jugador->arriba->data = '@';
 			jugador->arriba->arriba->data = '!';
 			jugador = jugador->arriba;
+			puntaje.push(1);
 			return true;
 		}
 		else {
@@ -147,6 +148,7 @@ bool Lista::arriba()
 			jugador->arriba->data = '*';
 			jugador->arriba->arriba->data = '$';
 			jugador = jugador->arriba;
+			puntaje.pop();
 			return true;
 		}
 		else if (jugador->arriba->arriba->data == '.') {
@@ -212,6 +214,7 @@ bool Lista::abajo()
 			jugador->abajo->data = '@';
 			jugador->abajo->abajo->data = '!';
 			jugador = jugador->abajo;
+			puntaje.push(1);
 			return true;
 		}
 		else {
@@ -228,6 +231,7 @@ bool Lista::abajo()
 			jugador->abajo->data = '*';
 			jugador->abajo->abajo->data = '$';
 			jugador = jugador->abajo;
+			puntaje.pop();
 			return true;
 		}
 		else if (jugador->abajo->abajo->data == '.') {
@@ -293,6 +297,7 @@ bool Lista::izquierda()
 			jugador->izquierda->data = '@';
 			jugador->izquierda->izquierda->data = '!';
 			jugador = jugador->izquierda;
+			puntaje.push(1);
 			return true;
 		}
 		else {
@@ -309,6 +314,7 @@ bool Lista::izquierda()
 			jugador->izquierda->data = '*';
 			jugador->izquierda->izquierda->data = '$';
 			jugador = jugador->izquierda;
+			puntaje.pop();
 			return true;
 		}
 		else if (jugador->izquierda->izquierda->data == '.') {
@@ -374,6 +380,7 @@ bool Lista::derecha()
 			jugador->derecha->data = '@';
 			jugador->derecha->derecha->data = '!';
 			jugador = jugador->derecha;
+			puntaje.push(1);
 			return true;
 		}
 		else {
@@ -390,6 +397,7 @@ bool Lista::derecha()
 			jugador->derecha->data = '*';
 			jugador->derecha->derecha->data = '$';
 			jugador = jugador->derecha;
+			puntaje.pop();
 			return true;
 		}
 		else if (jugador->derecha->derecha->data == '.') {

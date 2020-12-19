@@ -10,6 +10,8 @@
 // add headers that you want to pre-compile here
 #include<iostream>
 #include<stdlib.h>
+#include<stack>
+#include<vector>
 
 using namespace std;
 
