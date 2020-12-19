@@ -37,8 +37,8 @@ Nivel::Nivel(int nivel) {
 		cout << "No se cargo la imagen correctamente" << endl;
 	}
 
-	if (!TexturaPersonajeFrente.loadFromFile("imagenes/PersonajeFrente.png") || !TexturaPersonajeAtras.loadFromFile("imagenes/PersonajeAtras.png") || 
-		!TexturaPersonajeDerecha.loadFromFile("imagenes/PersonajeDerecha.png") || !TexturaPersonajeIzquierda.loadFromFile("imagenes/PersonajeIzquierda.png"))
+	if (!TexturaPersonajeFrente.loadFromFile("imagenes/LinkAbajo.png") || !TexturaPersonajeAtras.loadFromFile("imagenes/LinkArriba.png") || 
+		!TexturaPersonajeDerecha.loadFromFile("imagenes/LinkDerecha.png") || !TexturaPersonajeIzquierda.loadFromFile("imagenes/LinkIzquierda.png"))
 	{
 		cout << "No se cargo la imagen correctamente" << endl;;
 	}

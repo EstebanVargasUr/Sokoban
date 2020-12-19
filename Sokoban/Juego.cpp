@@ -93,6 +93,18 @@ void Juego::CargarJuego() {
                             }
                             Inicio = false;
                         }
+                        if (BtnRepeticionSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            if (RepeticionActiva == 0)
+                            {
+                                Inicio = false;
+                                while (lista->puntaje.empty() == false) {
+                                    lista->puntaje.pop();
+                                }
+                                cout << "Se reinicia puntaje" << endl;
+                                RepeticionActiva = 1;
+                            }
+                        }
                         if (Escena == 5) {
                             if (BtnSiguienteSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                             {
@@ -111,6 +123,7 @@ void Juego::CargarJuego() {
                             }
                             Inicio = false;
                         }
+                        
                     }
 
                 }
@@ -133,10 +146,9 @@ void Juego::CargarJuego() {
                             {
                                 nivel->casillas[lista->fila() - 1][lista->columna()]->sprite.setTexture(nivel->getTexturaCaja());
                             }
+                            Repeticion.push_back(1);
                         }
                     }
-
-                    
                 }
                 if (event.key.code == Keyboard::Down || event.key.code == Keyboard::S)
                 {
@@ -150,9 +162,9 @@ void Juego::CargarJuego() {
                             {
                                 nivel->casillas[lista->fila() + 1][lista->columna()]->sprite.setTexture(nivel->getTexturaCaja());
                             }
+                            Repeticion.push_back(2);
                         }
-                    }
-                    
+                    } 
                 }
                 if (event.key.code == Keyboard::Left || event.key.code == Keyboard::A)
                 {
@@ -166,10 +178,10 @@ void Juego::CargarJuego() {
                             {
                                 nivel->casillas[lista->fila()][lista->columna() - 1]->sprite.setTexture(nivel->getTexturaCaja());
                             }
+                            Repeticion.push_back(3);
                         }
                         
-                    }
-                    
+                    } 
                 }
                 if (event.key.code == Keyboard::Right || event.key.code == Keyboard::D)
                 {
@@ -183,6 +195,7 @@ void Juego::CargarJuego() {
                             {
                                 nivel->casillas[lista->fila()][lista->columna() + 1]->sprite.setTexture(nivel->getTexturaCaja());
                             }
+                            Repeticion.push_back(4);
                         }
                     }
                     
@@ -201,6 +214,16 @@ void Juego::CargarJuego() {
                 break;
             }
 
+        }
+        if (RepeticionActiva == 1)
+        {
+            RepeticionActiva = 2;
+        }
+        else if (RepeticionActiva == 2)
+        {
+            cout << "entra if";
+            CargarRepeticion();
+            RepeticionActiva = 0;
         }
       //  Victoria();
         CargaEscenas();
@@ -329,6 +352,7 @@ void Juego::CargaEscenas() {
             window.draw(Meta1Spt);
             window.draw(Meta2Spt);
             window.draw(Meta3Spt);
+
             if (lista->puntaje.size() == 3) {
                 window.draw(BarraVictoriaSpt);
                 window.draw(BtnRepeticionSpt);
@@ -473,3 +497,72 @@ void Juego::CargarLista()
     } 
 }
 
+void Juego::CargarRepeticion() 
+{   
+    Clock clock;
+    Time time1;
+    cout << "Se carga repeticion" << endl;
+    Time tiempo = seconds(0.03f);
+    for (int i = 0; i < Repeticion.size(); i++)
+    {
+        clock.restart();
+        time1 = clock.getElapsedTime();
+        while (time1 < tiempo)
+        {
+            time1 = clock.getElapsedTime();
+        }
+
+        if (Repeticion[i] == 1)
+        {
+            cout << "Arriba" << endl;
+            if (lista->mover("arriba")) {
+                nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeAtras());
+                nivel->casillas[lista->fila() + 1][lista->columna()]->sprite.setTexture(nivel->getTexturaFondo());
+
+                if (lista->getJugador()->arriba->data == '$' || lista->getJugador()->arriba->data == '!')
+                {
+                    nivel->casillas[lista->fila() - 1][lista->columna()]->sprite.setTexture(nivel->getTexturaCaja());
+                }
+            }
+        }
+        else if (Repeticion[i] == 2)
+        {
+            cout << "Abajo" << endl;
+            if (lista->mover("abajo")) {
+                nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeFrente());
+                nivel->casillas[lista->fila() - 1][lista->columna()]->sprite.setTexture(nivel->getTexturaFondo());
+
+                if (lista->getJugador()->abajo->data == '$' || lista->getJugador()->abajo->data == '!')
+                {
+                    nivel->casillas[lista->fila() + 1][lista->columna()]->sprite.setTexture(nivel->getTexturaCaja());
+                }
+            }
+        }
+        else if (Repeticion[i] == 3)
+        {
+            cout << "Izquierda" << endl;
+            if (lista->mover("izquierda")) {
+                nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeIzquierda());
+                nivel->casillas[lista->fila()][lista->columna() + 1]->sprite.setTexture(nivel->getTexturaFondo());
+
+                if (lista->getJugador()->izquierda->data == '$' || lista->getJugador()->izquierda->data == '!')
+                {
+                    nivel->casillas[lista->fila()][lista->columna() - 1]->sprite.setTexture(nivel->getTexturaCaja());
+                }
+            }
+        }
+        else if (Repeticion[i] == 4)
+        {
+            cout << "Derecha" << endl;
+            if (lista->mover("derecha")) {
+                nivel->casillas[lista->fila()][lista->columna()]->sprite.setTexture(nivel->getTexturaPersonajeDerecha());
+                nivel->casillas[lista->fila()][lista->columna() - 1]->sprite.setTexture(nivel->getTexturaFondo());
+
+                if (lista->getJugador()->derecha->data == '$' || lista->getJugador()->derecha->data == '!')
+                {
+                    nivel->casillas[lista->fila()][lista->columna() + 1]->sprite.setTexture(nivel->getTexturaCaja());
+                }
+            }
+        }
+    }
+}

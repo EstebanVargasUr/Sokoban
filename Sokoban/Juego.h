@@ -2,6 +2,7 @@
 #include "SFML\Graphics.hpp"
 #include "CargaGrafica.h"
 #include <vector>
+#include <windows.h>
 #include "Nivel.h"
 #include "Lista.h"
 using namespace sf;
@@ -89,6 +90,10 @@ private:
     Music MusicaNivel2;
     Music MusicaNivel3;
     Music MusicaNivel4;
+
+
+    vector<int> Repeticion;
+    int RepeticionActiva = 0;
 
     //Niveles 
     char tabla1[15][20] = { {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -178,6 +183,7 @@ private:
 	void CargaEscenas();
 	void CargarLista();
     void CargarSonidos();
+    void CargarRepeticion();
 	
 	
 };
