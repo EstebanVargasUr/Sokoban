@@ -34,6 +34,10 @@ void Juego::CargarJuego() {
                             Escena = 1;
                             Inicio = false;
                         }
+                        if (BtnCargarPartidaSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            LeerArchivo();
+                        }
                         if (BtnSalirSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             MusicaInicial.stop();
@@ -90,6 +94,10 @@ void Juego::CargarJuego() {
                             Repeticion.clear();
                             RepeticionActiva = 0;
                             MovimientoRepeticion = 0;
+                        } 
+                        if (BtnGuardarSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            GuardarArchivo();
                         }
                         if (BtnNivelesSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
@@ -220,6 +228,7 @@ void Juego::Cargartexturas() {
     CargaGrafica CargaBtnNiveles = CargaGrafica("imagenes/btnNiveles.png", 1070, 410, 0.68, 0.7, BtnNivelesTx, BtnNivelesSpt, 1);
     CargaGrafica CargaBtnRepeticion = CargaGrafica("imagenes/btnRepeticion.png", 450, 360, 0.68, 0.7, BtnRepeticionTx, BtnRepeticionSpt, 1);
     CargaGrafica CargaBtnSiguiente = CargaGrafica("imagenes/btnSiguiente.png", 650, 365, 0.68, 0.7, BtnSiguienteTx, BtnSiguienteSpt, 1);
+    CargaGrafica CargaBtnGuardar = CargaGrafica("imagenes/btnGuardar.png", 1070, 510, 0.68, 0.7, BtnGuardarTx, BtnGuardarSpt, 1);
     CargaGrafica CargaBarraVictoria = CargaGrafica("imagenes/BarraVictoria.png", 300, 350, 0.35, 0.35, BarraVictoriaTx, BarraVictoriaSpt, 1);
     CargaGrafica CargaFondoNivel1 = CargaGrafica("imagenes/fondo1.jpg", 0, 0, 2.5, 2.5, FondoNivel1Tx, FondoNivel1Spt, 0);
     CargaGrafica CargaFondoNivel2 = CargaGrafica("imagenes/fondo2.png", 0, 0, 2.3, 2.3, FondoNivel2Tx, FondoNivel2Spt, 0);
@@ -444,6 +453,7 @@ void Juego::CargaEscenas() {
         window.draw(BtnHomeSpt);
         window.draw(BtnReiniciarSpt);
         window.draw(BtnNivelesSpt);
+        window.draw(BtnGuardarSpt);
         window.display();
     }  
 }
@@ -556,4 +566,52 @@ void Juego::CargarRepeticion()
        RepeticionActiva = 0;
        MovimientoRepeticion = 0;
    }
+}
+void Juego::GuardarArchivo()
+{
+    remove("partida.txt");
+    archivo.open("partida.txt", ios::out | ios::app);
+    archivo << Escena<<"\n";
+    for (int i = 0; i < Repeticion.size(); i++) {
+        archivo << Repeticion[i] << "\n";
+    }
+    archivo.close();
+}
+void Juego::LeerArchivo()
+{
+    ifstream lectura;
+    string texto;
+    string escena;
+    int i = 0;
+    int cant = 0;
+
+    lectura.open("partida.txt", ios::in);
+    if (lectura.fail()) {
+        cout << "No se pudo abrir el archivo" << endl;
+        exit(1);
+    }
+   while (!lectura.eof()) {
+        getline(lectura, texto);
+        cant++;
+    }
+   lectura.close();
+   lectura.open("partida.txt", ios::in);
+    string *vec= new string [cant-1];
+    while (!lectura.eof()) {
+        getline(lectura, texto);
+        if (i == 0) {
+                escena = texto;
+        }
+        else if(i!=cant) {
+            vec[i-1] = texto;
+        }
+        i++;
+    }
+    
+    cout << "La escena es " << escena << endl;
+    for (int k = 0; k < cant-2; k++)
+    {
+        cout << "v: " << vec[k] << endl;
+    }
+    lectura.close();
 }

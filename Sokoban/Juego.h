@@ -5,6 +5,7 @@
 #include <windows.h>
 #include "Nivel.h"
 #include "Lista.h"
+#include <fstream>
 using namespace sf;
 using namespace std;
 
@@ -48,6 +49,7 @@ private:
 	Texture BtnNivelesTx;
 	Texture BtnRepeticionTx;
     Texture BtnSiguienteTx;
+    Texture BtnGuardarTx;
 	Texture BarraVictoriaTx;
 
 
@@ -79,6 +81,7 @@ private:
 	Sprite BtnNivelesSpt;
 	Sprite BtnRepeticionSpt;
     Sprite BtnSiguienteSpt;
+    Sprite BtnGuardarSpt;
 	Sprite BarraVictoriaSpt;
 	Nivel *nivel;
 	Lista *lista;
@@ -178,7 +181,7 @@ private:
                             {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '} };
 
 	public:
-
+    ofstream archivo;
     void MovimientoGrafico(string,bool);
 	void CargarJuego();
 	void Cargartexturas();
@@ -186,6 +189,8 @@ private:
 	void CargarLista();
     void CargarSonidos();
     void CargarRepeticion();
+    void GuardarArchivo();
+    void LeerArchivo();
 	
 	
 };
