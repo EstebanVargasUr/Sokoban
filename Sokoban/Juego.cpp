@@ -37,6 +37,7 @@ void Juego::CargarJuego() {
                         if (BtnCargarPartidaSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             LeerArchivo();
+                            cargaActiva = 1;
                         }
                         if (BtnSalirSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
@@ -95,7 +96,7 @@ void Juego::CargarJuego() {
                             RepeticionActiva = 0;
                             MovimientoRepeticion = 0;
                         } 
-                        if (BtnGuardarSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        if (BtnGuardarSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y) && RepeticionActiva == 0)
                         {
                             GuardarArchivo();
                         }
@@ -208,6 +209,13 @@ void Juego::CargarJuego() {
             if (RepeticionActiva == 2)
             {MovimientoRepeticion = MovimientoRepeticion + 1;}
         }
+        if (cargaActiva == 1) {
+            cargaActiva = 2;
+        }
+        else if (cargaActiva == 2) {   
+            EstablecePartidaGuardada(); 
+            cargaActiva = 0;
+        }
         CargaEscenas();
     }
 }
@@ -316,8 +324,9 @@ void Juego::CargaEscenas() {
             if (!Inicio) {
                 MusicaSelector.stop();
                 MusicaNivel1.play();
-
+                
                 nivel = new Nivel(1);
+                
                 CargarLista();
                 CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 300, 420, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
                 CargaGrafica CargaMeta2 = CargaGrafica("imagenes/Meta1.png", 840, 540, 0.15, 0.15, Meta2Tx, Meta2Spt, 1);
@@ -581,9 +590,8 @@ void Juego::LeerArchivo()
 {
     ifstream lectura;
     string texto;
-    string escena;
     int i = 0;
-    int cant = 0;
+    tamVector = 0;
 
     lectura.open("partida.txt", ios::in);
     if (lectura.fail()) {
@@ -592,26 +600,58 @@ void Juego::LeerArchivo()
     }
    while (!lectura.eof()) {
         getline(lectura, texto);
-        cant++;
-    }
+        tamVector++;
+   }
+
    lectura.close();
    lectura.open("partida.txt", ios::in);
-    string *vec= new string [cant-1];
+   vectorAux= new string [tamVector -1];
+
     while (!lectura.eof()) {
         getline(lectura, texto);
         if (i == 0) {
-                escena = texto;
+            Escena = stoi(texto);
         }
-        else if(i!=cant) {
-            vec[i-1] = texto;
+        else if(i!= tamVector) {
+            vectorAux[i-1] = texto;
         }
         i++;
     }
-    
-    cout << "La escena es " << escena << endl;
-    for (int k = 0; k < cant-2; k++)
-    {
-        cout << "v: " << vec[k] << endl;
-    }
     lectura.close();
+    Inicio = false;
+    MovimientoRepeticion = 0;
+}
+
+void Juego::EstablecePartidaGuardada() {
+   
+    Repeticion.clear();
+    for (int g = 0; g < tamVector-2; g++)
+    {
+        Repeticion.push_back(stoi(vectorAux[g]));
+    }
+    for (int i = 0; i < Repeticion.size(); i++)
+    {
+        if (MovimientoRepeticion < Repeticion.size())
+        {
+            if (Repeticion[MovimientoRepeticion] == 1)
+            {
+                MovimientoGrafico("arriba", true);
+            }
+            else if (Repeticion[MovimientoRepeticion] == 2)
+            {
+                MovimientoGrafico("abajo", true);
+            }
+            else if (Repeticion[MovimientoRepeticion] == 3)
+            {
+                MovimientoGrafico("izquierda", true);
+            }
+            else if (Repeticion[MovimientoRepeticion] == 4)
+            {
+                MovimientoGrafico("derecha", true);
+            }
+            MovimientoRepeticion++;
+            
+        }
+    }
+    MovimientoRepeticion = 0;
 }

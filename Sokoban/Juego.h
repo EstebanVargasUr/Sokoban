@@ -3,6 +3,7 @@
 #include "CargaGrafica.h"
 #include <vector>
 #include <windows.h>
+#include <sstream> 
 #include "Nivel.h"
 #include "Lista.h"
 #include <fstream>
@@ -181,7 +182,12 @@ private:
                             {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '} };
 
 	public:
+
     ofstream archivo;
+    string* vectorAux;
+    int cargaActiva;
+    int tamVector;
+
     void MovimientoGrafico(string,bool);
 	void CargarJuego();
 	void Cargartexturas();
@@ -191,6 +197,7 @@ private:
     void CargarRepeticion();
     void GuardarArchivo();
     void LeerArchivo();
+    void EstablecePartidaGuardada();
 	
 	
 };
