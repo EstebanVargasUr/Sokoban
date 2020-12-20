@@ -18,13 +18,10 @@ void Juego::CargarJuego() {
         {
             switch (event.type)
             {
-            // window closed
             case Event::Closed:
-                // "close requested" event: we close the window
                 window.close();
                 break;
 
-            // key pressed
             case Event::MouseButtonPressed:
                 if (event.mouseButton.button == Mouse::Left)
                 {
@@ -225,11 +222,10 @@ void Juego::Cargartexturas() {
     CargaGrafica CargaBtnJugar = CargaGrafica("imagenes/btnJugar.png", 400, 390, 0.9, 0.9, BtnJugarTx, BtnJugarSpt,1);
     CargaGrafica CargaBtnCargar = CargaGrafica("imagenes/btnCargarPartida.png", 400, 510, 0.9, 0.9, BtnCargarPartidaTx, BtnCargarPartidaSpt, 1);
     CargaGrafica CargaBtnSalir = CargaGrafica("imagenes/btnSalir.png", 400, 630, 0.9, 0.9, BtnSalirTx, BtnSalirSpt, 1);
-    CargaGrafica CargaBtnNivel1 = CargaGrafica("imagenes/btnNivel1.png", 160, 300, 0.75, 0.75, BtnNivel1Tx, BtnNivel1Spt, 1);
-    CargaGrafica CargaBtnNivel2 = CargaGrafica("imagenes/btnNivel2.png", 360, 500, 0.75, 0.75, BtnNivel2Tx, BtnNivel2Spt, 1);
-    CargaGrafica CargaBtnNivel3 = CargaGrafica("imagenes/btnNivel3.png", 560, 300, 0.75, 0.75, BtnNivel3Tx, BtnNivel3Spt, 1);
-    CargaGrafica CargaBtnNivel4 = CargaGrafica("imagenes/btnNivel4.png", 760, 500, 0.75, 0.75, BtnNivel4Tx, BtnNivel4Spt, 1);
-    CargaGrafica CargaBtnNivel5 = CargaGrafica("imagenes/btnNivel5.png", 960, 300, 0.75, 0.75, BtnNivel5Tx, BtnNivel5Spt, 1);
+    CargaGrafica CargaBtnNivel1 = CargaGrafica("imagenes/btnNivel1.png", 250, 300, 0.75, 0.75, BtnNivel1Tx, BtnNivel1Spt, 1);
+    CargaGrafica CargaBtnNivel2 = CargaGrafica("imagenes/btnNivel2.png", 450, 500, 0.75, 0.75, BtnNivel2Tx, BtnNivel2Spt, 1);
+    CargaGrafica CargaBtnNivel3 = CargaGrafica("imagenes/btnNivel3.png", 650, 300, 0.75, 0.75, BtnNivel3Tx, BtnNivel3Spt, 1);
+    CargaGrafica CargaBtnNivel4 = CargaGrafica("imagenes/btnNivel4.png", 850, 500, 0.75, 0.75, BtnNivel4Tx, BtnNivel4Spt, 1);
     CargaGrafica CargaBtnDelvolverS = CargaGrafica("imagenes/btnDevolverS.png", 80, 800, 0.50, 0.65, BtnDevolverSTx, BtnDevolverSSpt, 1);
     CargaGrafica CargaBtnReiniciar = CargaGrafica("imagenes/btnReiniciar.png", 1050, 200, 0.35, 0.35, BtnReiniciarTx, BtnReiniciarSpt, 1);
     CargaGrafica CargaBtnHome = CargaGrafica("imagenes/btnHome.png", 1060, 310, 0.68, 0.7, BtnHomeTx, BtnHomeSpt, 1);
@@ -310,13 +306,16 @@ void Juego::CargaEscenas() {
         window.draw(BtnNivel2Spt);
         window.draw(BtnNivel3Spt);
         window.draw(BtnNivel4Spt);
-        window.draw(BtnNivel5Spt);
         window.draw(BtnDevolverSSpt);
         window.display();
     }
     if (Escena == 2 || Escena == 3 || Escena == 4 || Escena == 5)
     {
         window.clear();
+
+        if (!Inicio) {
+           MusicaInicial.stop();
+        }
 
         if (Escena == 2) {
             window.draw(FondoNivel1Spt);

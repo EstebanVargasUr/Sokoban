@@ -127,11 +127,6 @@ void Nivel::setNivel1() {
 	casillas[11][12]->setSprite(TexturaMuro,false);
 	//PERSONAJE
 	casillas[10][10]->setSprite(TexturaPersonajeAtras,false);
-	//METAS
-	/*casillas[4][12]->setSprite(TexturaMeta);
-	casillas[7][5]->setSprite(TexturaMeta);
-	casillas[9][14]->setSprite(TexturaMeta);*/
-
 	//CAJAS
 	casillas[6][7]->setSprite(TexturaCaja,false);
 	casillas[7][11]->setSprite(TexturaCaja,false);
@@ -180,10 +175,6 @@ void Nivel::setNivel2() {
 	casillas[10][10]->setSprite(TexturaMuro,false);
 	//PERSONAJE
 	casillas[4][9]->setSprite(TexturaPersonajeFrente,false);
-	//METAS
-	/*casillas[4][12]->setSprite(TexturaMeta);
-	casillas[4][11]->setSprite(TexturaMeta);
-	casillas[4][10]->setSprite(TexturaMeta);*/
 	//CAJAS
 	casillas[6][9]->setSprite(TexturaCaja,false);
 	casillas[7][11]->setSprite(TexturaCaja,false);
@@ -238,13 +229,6 @@ void Nivel::setNivel3() {
 
 	//PERSONAJE
 	casillas[5][8]->setSprite(TexturaPersonajeDerecha,false);
-	//METAS
-	/*casillas[5][7]->setSprite(TexturaMeta);
-	casillas[6][11]->setSprite(TexturaMeta);
-	casillas[7][7]->setSprite(TexturaMeta);
-	casillas[8][10]->setSprite(TexturaMeta);
-	casillas[9][12]->setSprite(TexturaMeta);
-	casillas[10][10]->setSprite(TexturaMeta);*/
 	//CAJAS
 	casillas[5][9]->setSprite(TexturaCaja,false);
 	casillas[6][10]->setSprite(TexturaCaja,false);
@@ -319,11 +303,6 @@ void Nivel::setNivel4() {
 	casillas[12][15]->setSprite(TexturaMuro,false);
 	//PERSONAJE
 	casillas[9][7]->setSprite(TexturaPersonajeAtras,false);
-	//METAS
-	/*casillas[5][9]->setSprite(TexturaMeta);
-	casillas[6][9]->setSprite(TexturaMeta);
-	casillas[7][9]->setSprite(TexturaMeta);
-	casillas[8][9]->setSprite(TexturaMeta);*/
 	//CAJAS
 	casillas[3][9]->setSprite(TexturaCaja,false);
 	casillas[4][7]->setSprite(TexturaCaja,false);

@@ -7,6 +7,7 @@
 #include "Nivel.h"
 #include "Lista.h"
 #include <fstream>
+#include <cstdlib>
 using namespace sf;
 using namespace std;
 
@@ -36,7 +37,6 @@ private:
 	Texture BtnNivel2Tx;
 	Texture BtnNivel3Tx;
 	Texture BtnNivel4Tx;
-	Texture BtnNivel5Tx;
 	Texture BtnDevolverSTx;
 	Texture Meta1Tx;
 	Texture Meta2Tx;
@@ -68,7 +68,6 @@ private:
 	Sprite BtnNivel2Spt;
 	Sprite BtnNivel3Spt;
 	Sprite BtnNivel4Spt;
-	Sprite BtnNivel5Spt;
 	Sprite BtnDevolverSSpt;
 	Sprite Meta1Spt;
 	Sprite Meta2Spt;

@@ -419,10 +419,18 @@ bool Lista::derecha()
 		return false;
 	}
 }
+int Lista::fila()
+{
+	return jugador->fila;
+}
 
+int Lista::columna()
+{
+	return jugador->columna;
+}
+//USO PARA FACILITAR EL DESARROLLO DEL FUNCIONAMIENTO DEL VIDEOJUEGO
 void Lista::mostrar()
 {
-
 	cout << "\n\n\n	PRUEBAS\n" << endl;
 	Nodo* aux = new Nodo();
 	Nodo* aux2 = new Nodo();
@@ -434,7 +442,7 @@ void Lista::mostrar()
 		while (aux2 != NULL)
 		{
 			cout << "----> Dato: " << aux2->data << " | Fila: " << aux2->fila << " Columna: " << aux2->columna << " | " << endl;
-			
+
 			cout << endl;
 
 			aux2 = aux2->derecha;
@@ -444,18 +452,11 @@ void Lista::mostrar()
 
 	cout << endl;
 }
-
-int Lista::fila()
+//USO PARA FACILITAR EL DESARROLLO DEL FUNCIONAMIENTO DEL VIDEOJUEGO A NIVEL GRAFICO
+void Lista::mostrarGrafico()
 {
-	return jugador->fila;
-}
 
-int Lista::columna()
-{
-	return jugador->columna;
-}
-
-	/*Nodo* ini = inicial;
+	Nodo* ini = inicial;
 	//fila 0
 	while (ini != NULL)
 	{
@@ -576,4 +577,4 @@ int Lista::columna()
 	}
 	cout << endl;
 }
-*/
+

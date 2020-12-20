@@ -25,6 +25,7 @@ public:
     bool izquierda();
     bool derecha();
     void mostrar();
+    void mostrarGrafico();
     int fila();
     int columna();
     stack<int> puntaje;
