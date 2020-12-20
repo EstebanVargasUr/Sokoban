@@ -83,7 +83,7 @@ private:
 	Nivel *nivel;
 	Lista *lista;
 
-    //SONIDOS
+    //Sonidos
     Music MusicaInicial;
     Music MusicaSelector;
     Music MusicaNivel1;
@@ -91,9 +91,10 @@ private:
     Music MusicaNivel3;
     Music MusicaNivel4;
 
-
+    //Repeticiones
     vector<int> Repeticion;
     int RepeticionActiva = 0;
+    int MovimientoRepeticion = 0;
 
     //Niveles 
     char tabla1[15][20] = { {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -178,6 +179,7 @@ private:
 
 	public:
 
+    void MovimientoGrafico(string,bool);
 	void CargarJuego();
 	void Cargartexturas();
 	void CargaEscenas();
