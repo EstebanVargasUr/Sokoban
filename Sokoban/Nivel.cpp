@@ -32,7 +32,7 @@ Nivel::Nivel(int nivel) {
 		break;
 	}
 
-	if(!TexturaCaja.loadFromFile("imagenes/caja1.png") || !TexturaCajaMeta.loadFromFile("imagenes/caja2.png") || !TexturaMeta.loadFromFile("imagenes/Meta1.png"))
+	if(!TexturaCaja.loadFromFile("imagenes/caja1.png") || !TexturaMeta.loadFromFile("imagenes/Meta1.png"))
 	{
 		cout << "No se cargo la imagen correctamente" << endl;
 	}
