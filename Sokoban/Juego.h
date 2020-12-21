@@ -23,6 +23,7 @@ private:
 	Image icono;
 	int Escena = 0;
 	bool Inicio = false;
+    bool Victoria = false;
 	//Texturas
 	Texture FondoMenuTx;
     Texture FondoNivel1Tx;

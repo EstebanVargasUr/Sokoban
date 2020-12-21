@@ -108,7 +108,7 @@ void Juego::CargarJuego() {
                             RepeticionActiva = 0;
                             MovimientoRepeticion = 0;
                         }
-                        if (BtnRepeticionSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        if (BtnRepeticionSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y) && Victoria)
                         {
                             if (RepeticionActiva == 0)
                             {
@@ -132,8 +132,9 @@ void Juego::CargarJuego() {
                                 MovimientoRepeticion = 0;
                             }
                         }
-                        else if(BtnSiguienteSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        else if(BtnSiguienteSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y) && Victoria)
                         {
+                            
                             Escena = Escena+1;
                             while (lista->puntaje.empty() == false) {
                                 lista->puntaje.pop();
@@ -323,7 +324,7 @@ void Juego::CargaEscenas() {
             if (!Inicio) {
                 MusicaSelector.stop();
                 MusicaNivel1.play();
-                
+                Victoria = false;
                 nivel = new Nivel(1);
                 
                 CargarLista();
@@ -347,6 +348,7 @@ void Juego::CargaEscenas() {
                 window.draw(BarraVictoriaSpt);
                 window.draw(BtnRepeticionSpt);
                 window.draw(BtnSiguienteSpt);
+                Victoria = true;
             }
         }
 
@@ -357,7 +359,7 @@ void Juego::CargaEscenas() {
                 MusicaSelector.stop();
                 MusicaNivel1.stop();
                 MusicaNivel2.play();
-
+                Victoria = false;
                 nivel = new Nivel(2);
                 CargarLista();
                 CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 600, 240, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
@@ -380,6 +382,7 @@ void Juego::CargaEscenas() {
                 window.draw(BarraVictoriaSpt);
                 window.draw(BtnRepeticionSpt);
                 window.draw(BtnSiguienteSpt);
+                Victoria = true;
             }
         }
         if (Escena == 4) {
@@ -389,7 +392,7 @@ void Juego::CargaEscenas() {
                 MusicaSelector.stop();
                 MusicaNivel2.stop();
                 MusicaNivel3.play();
-
+                Victoria = false;
                 nivel = new Nivel(3);
                 CargarLista();
                 lista->puntaje.push(1);
@@ -421,6 +424,7 @@ void Juego::CargaEscenas() {
                 window.draw(BarraVictoriaSpt);
                 window.draw(BtnRepeticionSpt);
                 window.draw(BtnSiguienteSpt);
+                Victoria = true;
             }
         }
         if (Escena == 5) {
@@ -430,7 +434,7 @@ void Juego::CargaEscenas() {
                 MusicaSelector.stop();
                 MusicaNivel3.stop();
                 MusicaNivel4.play();
-
+                Victoria = false;
                 nivel = new Nivel(4);
                 CargarLista();
                 CargaGrafica CargaMeta1 = CargaGrafica("imagenes/Meta1.png", 540, 300, 0.15, 0.15, Meta1Tx, Meta1Spt, 1);
@@ -455,6 +459,7 @@ void Juego::CargaEscenas() {
                 window.draw(BarraVictoriaSpt);
                 window.draw(BtnRepeticionSpt);
                 window.draw(BtnSiguienteSpt);
+                Victoria = true;
             }
         }
 
