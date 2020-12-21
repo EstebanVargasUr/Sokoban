@@ -133,7 +133,9 @@ void Juego::CargarJuego() {
                         if (Escena == 5) {
                             if (BtnSiguienteSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                             {
-                                Escena = 0;
+                                Escena = -1;
+                                MusicaNivel4.stop();
+                                MusicaInicial.play();
                                 while (lista->puntaje.empty() == false) {
                                     lista->puntaje.pop();
                                 }
