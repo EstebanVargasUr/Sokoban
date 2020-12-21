@@ -36,10 +36,21 @@ void Juego::CargarJuego() {
                             LeerArchivo();
                             cargaActiva = 1;
                         }
+                        if (BtnAcercaDeSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            Escena = -1;
+                        }
                         if (BtnSalirSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
                         {
                             MusicaInicial.stop();
                             window.close();
+                        }
+                    }
+                    if (Escena == -1) {
+                        if (BtnDevolverSSpt.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+                        {
+                            Escena = 0;
+                            Inicio = false;
                         }
                     }
                     if (Escena == 1) {
@@ -222,7 +233,9 @@ void Juego::Cargartexturas() {
     CargaGrafica CargaLogo = CargaGrafica("imagenes/logoSokoban.png",405,100,0.65,0.65, LogoTx, LogoSpt,1);
     CargaGrafica CargaBtnJugar = CargaGrafica("imagenes/btnJugar.png", 400, 390, 0.9, 0.9, BtnJugarTx, BtnJugarSpt,1);
     CargaGrafica CargaBtnCargar = CargaGrafica("imagenes/btnCargarPartida.png", 400, 510, 0.9, 0.9, BtnCargarPartidaTx, BtnCargarPartidaSpt, 1);
-    CargaGrafica CargaBtnSalir = CargaGrafica("imagenes/btnSalir.png", 400, 630, 0.9, 0.9, BtnSalirTx, BtnSalirSpt, 1);
+    CargaGrafica CargaBtnSalir = CargaGrafica("imagenes/btnSalir.png", 400, 750, 0.9, 0.9, BtnSalirTx, BtnSalirSpt, 1);
+    CargaGrafica CargaBtnAcercaDe = CargaGrafica("imagenes/btnAcercaDe.png", 400, 630, 0.9, 0.9, BtnAcercaDeTx, BtnAcercaDeSpt, 1);
+    CargaGrafica CargaAcercaDe = CargaGrafica("imagenes/acercaDe.png", 50, 50, 1, 1, AcercaDeTx, AcercaDeSpt, 1);
     CargaGrafica CargaBtnNivel1 = CargaGrafica("imagenes/btnNivel1.png", 250, 300, 0.75, 0.75, BtnNivel1Tx, BtnNivel1Spt, 1);
     CargaGrafica CargaBtnNivel2 = CargaGrafica("imagenes/btnNivel2.png", 450, 500, 0.75, 0.75, BtnNivel2Tx, BtnNivel2Spt, 1);
     CargaGrafica CargaBtnNivel3 = CargaGrafica("imagenes/btnNivel3.png", 650, 300, 0.75, 0.75, BtnNivel3Tx, BtnNivel3Spt, 1);
@@ -286,6 +299,7 @@ void Juego::CargaEscenas() {
         window.draw(LogoSpt);
         window.draw(BtnJugarSpt);
         window.draw(BtnCargarPartidaSpt);
+        window.draw(BtnAcercaDeSpt);
         window.draw(BtnSalirSpt);
         window.display();
     }
@@ -307,6 +321,13 @@ void Juego::CargaEscenas() {
         window.draw(BtnNivel2Spt);
         window.draw(BtnNivel3Spt);
         window.draw(BtnNivel4Spt);
+        window.draw(BtnDevolverSSpt);
+        window.display();
+    }
+    if (Escena == -1) {
+        window.clear();
+        window.draw(FondoMenuSpt);
+        window.draw(AcercaDeSpt);
         window.draw(BtnDevolverSSpt);
         window.display();
     }

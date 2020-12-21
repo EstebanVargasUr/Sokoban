@@ -53,7 +53,8 @@ private:
     Texture BtnSiguienteTx;
     Texture BtnGuardarTx;
 	Texture BarraVictoriaTx;
-
+    Texture BtnAcercaDeTx;
+    Texture AcercaDeTx;
 
 	//Sprites
 	Sprite FondoMenuSpt;
@@ -84,6 +85,8 @@ private:
     Sprite BtnSiguienteSpt;
     Sprite BtnGuardarSpt;
 	Sprite BarraVictoriaSpt;
+    Sprite BtnAcercaDeSpt;
+    Sprite AcercaDeSpt;
 	Nivel *nivel;
 	Lista *lista;
 
