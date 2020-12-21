@@ -1,6 +1,16 @@
 #include "pch.h"
 #include "Lista.h"
 
+
+/*Simobologia utilizada para el manejo del tablero
+	' ' = espacio vacio
+	'@' = personaje en el tablero
+	'*' = personaje ubicado en una posicion de meta
+	'$' = caja
+	'!' = caja ubicada en una posicion de meta
+	'#' = muro
+	'.' = Espacio para colocar una caja (meta)*/
+
 Lista::Lista()
 {
 	inicial = NULL;
