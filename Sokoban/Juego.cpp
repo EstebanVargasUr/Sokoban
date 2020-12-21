@@ -195,7 +195,7 @@ void Juego::CargarJuego() {
                 }
                 if (event.key.code == Keyboard::Escape)
                 {
-                    if (Escena != 0 && Escena != 1 && RepeticionActiva == 0)
+                    if (Escena != 0 && RepeticionActiva == 0)
                     {
                         Escena = 0;
                         Inicio = false;
